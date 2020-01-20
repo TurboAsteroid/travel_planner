@@ -10,8 +10,8 @@
         mail@meil.mail
       </v-col>
       <v-col class="text-right">
-        <v-icon right>mdi-instagram</v-icon>
-        <v-icon right>mdi-facebook-box</v-icon>
+        <v-icon color="white" x-large>mdi-instagram</v-icon>
+        <v-icon color="white" x-large>mdi-facebook-box</v-icon>
       </v-col>
     </v-row>
   </v-container>
