@@ -1,134 +1,134 @@
 <template>
-  <v-container>
-    <v-layout text-center wrap>
-      <v-flex xs12>
-        <v-img
-          :src="require('../../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
-        ></v-img>
-      </v-flex>
-
-      <v-flex mb-4>
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
-        </h1>
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br />please join our online
-          <a href="https://community.vuetifyjs.com" target="_blank"
-            >Discord Community</a
-          >
-        </p>
-      </v-flex>
-
-      <v-flex mb-5 xs12>
-        <h2 class="headline font-weight-bold mb-3">What's next?</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-
-      <v-flex xs12 mb-5>
-        <h2 class="headline font-weight-bold mb-3">Important Links</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-
-      <v-flex xs12 mb-5>
-        <h2 class="headline font-weight-bold mb-3">Ecosystem</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-    </v-layout>
+  <v-container id="PricesBlock">
+    <v-row>
+      <v-col class="headerText">
+        Стоимость
+        <br />
+        и сроки
+      </v-col>
+      <v-col>
+        <v-row class="text-center">
+          <v-col>
+            <span class="headerSmall">1 день</span>
+            <br />
+            <span class="textMiddle">путешествия</span>
+          </v-col>
+          <v-col class="headerSmall">
+            =
+          </v-col>
+          <v-col>
+            <span class="headerSmall">1 день*</span>
+            <br />
+            <span class="textMiddle">планирования</span>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+    <v-row class="mb-12 pb-12">
+      <v-spacer />
+      <v-col>
+        <v-row class="regularText">
+          Мы всегда стараемся выполнять работу быстрее установленного срока, но при этом не хотим жертвовать качеством.
+          Если вам нужнос делать план срочно, то ускорение сроков в 2 раза увеличивает общую стоимость в 1.5 раза.
+          <br />
+          <br />
+          <span style="font-style: italic; color:#3b57d4">* но не более 30 дней в обще сложности</span>
+        </v-row>
+      </v-col>
+    </v-row>
+    <v-row class="text-center">
+      <v-col>
+        <span class="headerMiddle">1 день</span>
+        <br />
+        <span class="textMiddle">путешествия</span>
+        <br />
+        <span class="textMiddle">1000 рублей</span>
+        <br />
+        <br />
+        <img class="promo" :src="require('../../assets/100x.svg')" />
+        <br />
+        <span class="headerSmall">
+          Первые 100
+          <br />
+          путешествий
+          <br />
+          скидка 50%
+        </span>
+      </v-col>
+      <v-col>
+        <span class="headerMiddle">14 день</span>
+        <br />
+        <span class="textMiddle">путешествия</span>
+        <br />
+        <span class="textMiddle">12000 рублей</span>
+        <br />
+        <br />
+        <img class="promo" :src="require('../../assets/21.svg')" />
+        <br />
+        <span class="headerSmall">
+          От 21 дня
+          <br />
+          скидка 10%
+        </span>
+      </v-col>
+      <v-col>
+        <span class="headerMiddle">21 день</span>
+        <br />
+        <span class="textMiddle">путешествия</span>
+        <br />
+        <span class="textMiddle">17000 рублей</span>
+        <br />
+        <br />
+        <img class="promo" :src="require('../../assets/friend.svg')" />
+        <br />
+        <span class="headerSmall">
+          Приведите друга,
+          <br />
+          получите вместе
+          <br />
+          скидку 10%
+        </span>
+      </v-col>
+    </v-row>
+    <v-row class="text-center mt-12">
+      <v-col>
+        <span  class="regularText">
+          Скидки суммируются
+        </span>
+        <br />
+        <a id="smallLink">
+          Подробные условия
+        </a>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
-
-  data: () => ({
-    ecosystem: [
-      {
-        text: "vuetify-loader",
-        href: "https://github.com/vuetifyjs/vuetify-loader"
-      },
-      {
-        text: "github",
-        href: "https://github.com/vuetifyjs/vuetify"
-      },
-      {
-        text: "awesome-vuetify",
-        href: "https://github.com/vuetifyjs/awesome-vuetify"
-      }
-    ],
-    importantLinks: [
-      {
-        text: "Documentation",
-        href: "https://vuetifyjs.com"
-      },
-      {
-        text: "Chat",
-        href: "https://community.vuetifyjs.com"
-      },
-      {
-        text: "Made with Vuetify",
-        href: "https://madewithvuejs.com/vuetify"
-      },
-      {
-        text: "Twitter",
-        href: "https://twitter.com/vuetifyjs"
-      },
-      {
-        text: "Articles",
-        href: "https://medium.com/vuetify"
-      }
-    ],
-    whatsNext: [
-      {
-        text: "Explore components",
-        href: "https://vuetifyjs.com/components/api-explorer"
-      },
-      {
-        text: "Select a layout",
-        href: "https://vuetifyjs.com/layout/pre-defined"
-      },
-      {
-        text: "Frequently Asked Questions",
-        href: "https://vuetifyjs.com/getting-started/frequently-asked-questions"
-      }
-    ]
-  })
+  name: "Prices",
+  data: () => ({})
 };
 </script>
+<style lang="sass">
+#PricesBlock
+  padding: 150px 0
+  @media screen and (max-width: 1904px)
+    padding: 100px 0
+  @media (max-width: 1263px)
+    padding: 80px 0
+  @media (max-width: 960px)
+    padding: 70px 0
+  @media (max-width: 600px)
+    padding: 50px 0
+#smallLink
+  color: #000
+  text-decoration: underline
+  font-weight: bold
+  &:hover
+    text-decoration: none
+.promo
+  height: 300px
+  margin-bottom: 30px
+
+</style>

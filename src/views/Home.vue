@@ -137,6 +137,7 @@ export default {
   @media (max-width: 600px)
     font-size: 0.9em
 .headerText
+  font-weight: bold
   font-size: 5em
   line-height: 1.2em
   @media screen and (max-width: 1903px)
@@ -147,4 +148,39 @@ export default {
     font-size: 4em
   @media (max-width: 600px)
     font-size: 3em
+.headerMiddle
+  font-weight: bold
+  font-size: 3.75em
+  line-height: 1.2em
+  @media screen and (max-width: 1903px)
+    font-size: 3em
+  @media (max-width: 1263px)
+    font-size: 2.25em
+  @media (max-width: 960px)
+    font-size: 3em
+  @media (max-width: 600px)
+    font-size: 2.25em
+.headerSmall
+  font-weight: bold
+  font-size: 2em
+  line-height: 1.2em
+  @media screen and (max-width: 1903px)
+    font-size: 1.8em
+  @media (max-width: 1263px)
+    font-size: 1.5em
+  @media (max-width: 960px)
+    font-size: 1.8em
+  @media (max-width: 600px)
+    font-size: 1.5em
+.textMiddle
+  font-size: 2.5em
+  line-height: 1.2em
+  @media screen and (max-width: 1903px)
+    font-size: 2em
+  @media (max-width: 1263px)
+    font-size: 1.5em
+  @media (max-width: 960px)
+    font-size: 2em
+  @media (max-width: 600px)
+    font-size: 1.5em
 </style>
