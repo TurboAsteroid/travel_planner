@@ -109,12 +109,11 @@ export default {
 #Header
   background: url("../assets/header.jpg") 50% 0 no-repeat
   background-size: cover
-  padding: 150px 0 130px
 #SimpleForm
   background: #fff
 #About
   background-color: rgba(127,186,225,1)
-  background: linear-gradient(-170deg, #7fbae1, #478bad 70%, #478bad 100%)
+  background: linear-gradient(-170deg, #7fbae1, #478bad 90%, #478bad 100%)
 #Prices
   background: #fff
 #Gallery
@@ -127,4 +126,25 @@ export default {
   background: #fff
 #Footer
   background: #4c8cac
+.regularText
+  font-size: 1.7em
+  @media screen and (max-width: 1903px)
+    font-size: 1em
+  @media (max-width: 1263px)
+    font-size: 0.75em
+  @media (max-width: 960px)
+    font-size: 1em
+  @media (max-width: 600px)
+    font-size: 0.9em
+.headerText
+  font-size: 5em
+  line-height: 1.2em
+  @media screen and (max-width: 1903px)
+    font-size: 4em
+  @media (max-width: 1263px)
+    font-size: 3em
+  @media (max-width: 960px)
+    font-size: 4em
+  @media (max-width: 600px)
+    font-size: 3em
 </style>

@@ -1,134 +1,94 @@
 <template>
-  <v-container>
-    <v-layout text-center wrap>
-      <v-flex xs12>
-        <v-img
-          :src="require('../../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
-        ></v-img>
-      </v-flex>
-
-      <v-flex mb-4>
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
-        </h1>
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br />please join our online
-          <a href="https://community.vuetifyjs.com" target="_blank"
-            >Discord Community</a
-          >
-        </p>
-      </v-flex>
-
-      <v-flex mb-5 xs12>
-        <h2 class="headline font-weight-bold mb-3">What's next?</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-
-      <v-flex xs12 mb-5>
-        <h2 class="headline font-weight-bold mb-3">Important Links</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-
-      <v-flex xs12 mb-5>
-        <h2 class="headline font-weight-bold mb-3">Ecosystem</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-    </v-layout>
+  <v-container id="about">
+    <v-row class="pa-3">
+      <v-col cols="12" md="6" class="pa-0 d-none d-md-flex">
+        <v-container class="pr-12">
+          <v-img id="aboutSvg" :src="require('../../assets/about.svg')" />
+        </v-container>
+      </v-col>
+      <v-col cols="12" md="6" class="pa-0 pl-12 white--text">
+        <v-container class="fill-height align-items-start">
+          <v-row class="aboutText">
+            <div class="mb-5 headerText">
+              <img class="aboutSvgS pa-0 d-md-none" :src="require('../../assets/aboutT.svg')" />
+              <wbr>
+              Как это работает?
+            </div>
+            <p class="regularText">
+              Мы - команда “бывалых” путешественников, знаем и пробовали все виды туризма от пассивного отдыха на пляжах
+              пятизвездочных отелей Турции до активных путешествий с рюкзаками по суровой Норвегии. К тому же мы не боимся
+              новых ещё неизведанных мест и с удовольствием открываем новые направления. Мы любим быть дотошными и
+              планировать всё максимально точно, с заботой о вашем времени и кошельке, ведь мы знаем как мало в году
+              отпускных дней и сколько стоит каждый день путешествия. Именно поэтому мы планируем Ваши путешествия “как
+              для себя”, даём максимально точные указания, максимально полезные советы и стараемся выжать максимум из
+              каждого дня и каждого потраченного рубля.
+            </p>
+            <p class="regularText">
+              Мы поможем Вам создать идеальное путешествие в соответствии со всеми вашими запросами, планами, мечтами и возможностями!
+            </p>
+            <p>
+              <a class="regularText">
+                Заполнить форму вы можете прямо сейчас
+                <v-icon right>mdi-chevron-right-circle</v-icon>
+              </a>
+            </p>
+          </v-row>
+          <v-row class="aboutText">
+            <div class="mb-5 headerText">
+              <img class="aboutSvgS pa-0 d-md-none" :src="require('../../assets/aboutB.svg')" />
+              <wbr>
+              Как это работает?
+            </div>
+            <p class="regularText">
+              Мы - команда “бывалых” путешественников, знаем и пробовали все виды туризма от пассивного отдыха на пляжах
+              пятизвездочных отелей Турции до активных путешествий с рюкзаками по суровой Норвегии. К тому же мы не боимся
+              новых ещё неизведанных мест и с удовольствием открываем новые направления. Мы любим быть дотошными и
+              планировать всё максимально точно, с заботой о вашем времени и кошельке, ведь мы знаем как мало в году
+              отпускных дней и сколько стоит каждый день путешествия. Именно поэтому мы планируем Ваши путешествия “как
+              для себя”, даём максимально точные указания, максимально полезные советы и стараемся выжать максимум из
+              каждого дня и каждого потраченного рубля.
+            </p>
+            <p class="regularText">
+              Мы поможем Вам создать идеальное путешествие в соответствии со всеми вашими запросами, планами, мечтами и возможностями!
+            </p>
+            <p>
+              <a class="regularText">
+                Остались вопросы? читайте наш <span style="text-decoration: underline">FAQ</span>
+              </a>
+            </p>
+          </v-row>
+        </v-container>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
-
-  data: () => ({
-    ecosystem: [
-      {
-        text: "vuetify-loader",
-        href: "https://github.com/vuetifyjs/vuetify-loader"
-      },
-      {
-        text: "github",
-        href: "https://github.com/vuetifyjs/vuetify"
-      },
-      {
-        text: "awesome-vuetify",
-        href: "https://github.com/vuetifyjs/awesome-vuetify"
-      }
-    ],
-    importantLinks: [
-      {
-        text: "Documentation",
-        href: "https://vuetifyjs.com"
-      },
-      {
-        text: "Chat",
-        href: "https://community.vuetifyjs.com"
-      },
-      {
-        text: "Made with Vuetify",
-        href: "https://madewithvuejs.com/vuetify"
-      },
-      {
-        text: "Twitter",
-        href: "https://twitter.com/vuetifyjs"
-      },
-      {
-        text: "Articles",
-        href: "https://medium.com/vuetify"
-      }
-    ],
-    whatsNext: [
-      {
-        text: "Explore components",
-        href: "https://vuetifyjs.com/components/api-explorer"
-      },
-      {
-        text: "Select a layout",
-        href: "https://vuetifyjs.com/layout/pre-defined"
-      },
-      {
-        text: "Frequently Asked Questions",
-        href: "https://vuetifyjs.com/getting-started/frequently-asked-questions"
-      }
-    ]
-  })
+  name: "About",
+  data: () => ({})
 };
 </script>
+<style lang="sass">
+#about
+  padding: 150px 0
+  @media screen and (max-width: 1904px)
+    padding: 100px 0
+  @media (max-width: 1263px)
+    padding: 80px 0
+  @media (max-width: 960px)
+    padding: 70px 0
+  @media (max-width: 600px)
+    padding: 50px 0
+.align-items-start
+  align-items: start !important
+.v-application a.regularText
+  color: #000
+  font-weight: bold
+#aboutSvg
+  @media (max-width: 960px)
+    height: 0
+.aboutSvgS
+  height: 150px
+  vertical-align: middle
+</style>
