@@ -183,4 +183,7 @@ export default {
     font-size: 2em
   @media (max-width: 600px)
     font-size: 1.5em
+.buttonBlack
+  text-transform: none !important
+  font-weight: bold
 </style>

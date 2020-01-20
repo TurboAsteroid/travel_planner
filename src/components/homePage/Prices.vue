@@ -1,5 +1,5 @@
 <template>
-  <v-container id="PricesBlock" class="pa-3">
+  <v-container id="PricesBlock">
     <v-row>
       <v-col cols="12" class="headerText" md="6">
         Стоимость
@@ -24,15 +24,19 @@
         </v-row>
       </v-col>
     </v-row>
-    <v-row  class="pa-3 mb-12 pb-12">
+    <v-row class="pa-3 mb-12 pb-12">
       <v-spacer />
       <v-col cols="12" md="6">
         <v-row class="regularText">
-          Мы всегда стараемся выполнять работу быстрее установленного срока, но при этом не хотим жертвовать качеством.
-          Если вам нужнос делать план срочно, то ускорение сроков в 2 раза увеличивает общую стоимость в 1.5 раза.
+          Мы всегда стараемся выполнять работу быстрее установленного срока, но
+          при этом не хотим жертвовать качеством. Если вам нужнос делать план
+          срочно, то ускорение сроков в 2 раза увеличивает общую стоимость в 1.5
+          раза.
           <br />
           <br />
-          <span style="font-style: italic; color:#3b57d4">* но не более 30 дней в обще сложности</span>
+          <span style="font-style: italic; color:#3b57d4"
+            >* но не более 30 дней в обще сложности</span
+          >
         </v-row>
       </v-col>
     </v-row>
@@ -92,7 +96,7 @@
     </v-row>
     <v-row class="text-center mt-12">
       <v-col>
-        <span  class="regularText">
+        <span class="regularText">
           Скидки суммируются
         </span>
         <br />
@@ -112,15 +116,15 @@ export default {
 </script>
 <style lang="sass">
 #PricesBlock
-  padding: 150px 0
+  padding: 150px 12px
   @media screen and (max-width: 1904px)
-    padding: 100px 0
+    padding: 100px 12px
   @media (max-width: 1263px)
-    padding: 80px 0
+    padding: 80px 12px
   @media (max-width: 960px)
-    padding: 70px 0
+    padding: 70px 12px
   @media (max-width: 600px)
-    padding: 50px 0
+    padding: 50px 12px
 #smallLink
   color: #000
   text-decoration: underline
@@ -130,5 +134,4 @@ export default {
 .promo
   height: 300px
   margin-bottom: 30px
-
 </style>

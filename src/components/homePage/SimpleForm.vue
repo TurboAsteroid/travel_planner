@@ -9,7 +9,15 @@
           filled
           xs="12"
         />
-        <v-btn id="findCountry" rounded color="#000" dark x-large xs="12">
+        <v-btn
+          id="findCountry"
+          rounded
+          color="#000"
+          dark
+          x-large
+          xs="12"
+          class="buttonBlack"
+        >
           Составить маршрут
         </v-btn>
       </v-layout>
