@@ -7,10 +7,10 @@
 </template>
 
 <script>
-  export default {
-    name: "Header",
-    data: () => ({})
-  };
+export default {
+  name: "Header",
+  data: () => ({})
+};
 </script>
 <style lang="sass">
 #headerWraper

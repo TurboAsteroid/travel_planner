@@ -3,8 +3,13 @@
     <v-img id="mountTop" :src="require('../../assets/mountTop.svg')" />
     <v-container>
       <v-layout row class="pa-3">
-        <v-text-field label="Куда вы хотите отправиться?" rounded filled xs="12" />
-        <v-btn id="findCountry" rounded color="#000" dark x-large xs="12" >
+        <v-text-field
+          label="Куда вы хотите отправиться?"
+          rounded
+          filled
+          xs="12"
+        />
+        <v-btn id="findCountry" rounded color="#000" dark x-large xs="12">
           Составить маршрут
         </v-btn>
       </v-layout>
@@ -12,7 +17,6 @@
     <v-img id="mountBottom" :src="require('../../assets/mountBottom.svg')" />
   </div>
 </template>
-
 
 <script>
 export default {

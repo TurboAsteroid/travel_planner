@@ -8,23 +8,18 @@ module.exports = {
       {
         test: /\.sass$/,
         use: [
-          'vue-style-loader',
-          'css-loader',
+          "vue-style-loader",
+          "css-loader",
           {
-            loader: 'sass-loader',
-            // Requires sass-loader@^7.0.0
-            options: {
-              // This is the path to your variables
-              data: "@import '@/styles/variables.scss'"
-            },
+            loader: "sass-loader",
             // Requires sass-loader@^8.0.0
             options: {
               // This is the path to your variables
               prependData: "@import '@/styles/variables.scss'"
-            },
-          },
-        ],
-      },
+            }
+          }
+        ]
+      }
     ]
   }
   // плагин опущен
