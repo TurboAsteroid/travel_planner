@@ -1,12 +1,12 @@
 <template>
-  <v-container id="PricesBlock">
+  <v-container id="PricesBlock" class="pa-3">
     <v-row>
-      <v-col class="headerText">
+      <v-col cols="12" class="headerText" md="6">
         Стоимость
         <br />
         и сроки
       </v-col>
-      <v-col>
+      <v-col cols="12" md="6">
         <v-row class="text-center">
           <v-col>
             <span class="headerSmall">1 день</span>
@@ -24,9 +24,9 @@
         </v-row>
       </v-col>
     </v-row>
-    <v-row class="mb-12 pb-12">
+    <v-row  class="pa-3 mb-12 pb-12">
       <v-spacer />
-      <v-col>
+      <v-col cols="12" md="6">
         <v-row class="regularText">
           Мы всегда стараемся выполнять работу быстрее установленного срока, но при этом не хотим жертвовать качеством.
           Если вам нужнос делать план срочно, то ускорение сроков в 2 раза увеличивает общую стоимость в 1.5 раза.
