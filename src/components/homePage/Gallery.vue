@@ -9,144 +9,168 @@
         width: place.size,
         height: place.size,
         top: place.top,
-        left: place.left
+        marginLeft: place.left
       }"
     >
-      <img :src="images[i]" aspect-ratio="1" />
+      <transition name="fade" mode="out-in">
+        <div v-if="!imagesHide[i]" class="imageWrap">
+          <v-img
+            :src="images[0][i]"
+            aspect-ratio="1"
+          />
+        </div>
+        <div v-else :key="i" class="imageWrap">
+          <v-img
+            v-bind:v-show="!imagesHide[i]"
+            :src="images[1][i]"
+            aspect-ratio="1"
+          />
+        </div>
+      </transition>
     </div>
   </v-container>
 </template>
 
 <script>
+import Vue from "vue";
 function randomInteger(min, max) {
-  // случайное число от min до (max+1)
-  let rand = min + Math.random() * (max + 1 - min);
+  let rand = min + Math.random() * (max - min);
   return Math.floor(rand);
 }
 export default {
   name: "Gallery",
   data: () => ({
-    images: [],
+    images: [[], []],
+    imagesHide: [],
     publicPath: process.env.BASE_URL,
     places: [
       {
         top: "30px",
-        left: "160px",
+        left: "-620px",
         size: "180px"
       },
       {
         top: "210px",
-        left: "40px",
+        left: "-740px",
         size: "225px"
       },
       {
         top: "325px",
-        left: "265px",
+        left: "-515px",
         size: "290px"
       },
       {
         top: "615px",
-        left: "80px",
+        left: "-705px",
         size: "290px"
       },
       {
-        top: "45px",
-        left: "555px",
+        top: "35px",
+        left: "-225px",
         size: "290px"
       },
       {
-        top: "330px",
-        left: "555px",
+        top: "325px",
+        left: "-225px",
         size: "410px"
       },
       {
         top: "735px",
-        left: "370px",
+        left: "-415px",
         size: "120px"
       },
       {
         top: "735px",
-        left: "485px",
+        left: "-295px",
         size: "185px"
       },
       {
         top: "735px",
-        left: "670px",
+        left: "-110px",
         size: "295px"
       },
       {
-        top: "145px",
-        left: "965px",
+        top: "140px",
+        left: "185px",
         size: "185px"
       },
       {
-        top: "330px",
-        left: "965px",
+        top: "325px",
+        left: "185px",
         size: "290px"
       },
       {
         top: "615px",
-        left: "965px",
+        left: "185px",
         size: "185px"
       },
       {
-        top: "45px",
-        left: "1150px",
+        top: "40px",
+        left: "370px",
         size: "285px"
       },
       {
         size: "180px",
-        top: "330px",
-        left: "1255px"
+        left: "475px",
+        top: "325px"
       },
       {
         top: "615px",
-        left: "1150px",
+        left: "370px",
         size: "370px"
       }
     ],
     imageCollections: [
-      "gallery/1.jpg",
-      "gallery/2.jpg",
-      "gallery/3.jpg",
-      "gallery/4.jpg",
-      "gallery/5.jpg",
-      "gallery/6.jpg",
-      "gallery/7.jpg",
-      "gallery/8.jpg",
-      "gallery/9.jpg",
-      "gallery/10.jpg",
-      "gallery/11.jpg",
-      "gallery/12.jpg",
-      "gallery/13.jpg",
-      "gallery/14.jpg",
-      "gallery/15.jpg",
-      "gallery/16.jpg",
-      "gallery/17.jpg",
-      "gallery/18.jpg",
-      "gallery/19.jpg",
-      "gallery/20.jpg"
-    ]
+      "https://i.picsum.photos/id/1/500/500.jpg",
+      "https://i.picsum.photos/id/2/500/500.jpg",
+      "https://i.picsum.photos/id/3/500/500.jpg",
+      "https://i.picsum.photos/id/4/500/500.jpg",
+      "https://i.picsum.photos/id/5/500/500.jpg",
+      "https://i.picsum.photos/id/6/500/500.jpg",
+      "https://i.picsum.photos/id/7/500/500.jpg",
+      "https://i.picsum.photos/id/8/500/500.jpg",
+      "https://i.picsum.photos/id/9/500/500.jpg",
+      "https://i.picsum.photos/id/10/500/500.jpg",
+      "https://i.picsum.photos/id/11/500/500.jpg",
+      "https://i.picsum.photos/id/12/500/500.jpg",
+      "https://i.picsum.photos/id/13/500/500.jpg",
+      "https://i.picsum.photos/id/14/500/500.jpg",
+      "https://i.picsum.photos/id/15/500/500.jpg",
+      "https://i.picsum.photos/id/16/500/500.jpg",
+      "https://i.picsum.photos/id/17/500/500.jpg",
+      "https://i.picsum.photos/id/18/500/500.jpg",
+      "https://i.picsum.photos/id/19/500/500.jpg",
+      "https://i.picsum.photos/id/20/500/500.jpg",
+      "https://i.picsum.photos/id/21/500/500.jpg",
+      "https://i.picsum.photos/id/22/500/500.jpg",
+      "https://i.picsum.photos/id/23/500/500.jpg",
+      "https://i.picsum.photos/id/24/500/500.jpg",
+      "https://i.picsum.photos/id/25/500/500.jpg",
+      "https://i.picsum.photos/id/26/500/500.jpg"
+    ],
+    tmpArray: []
   }),
   methods: {
     changeImage: function() {
-      this.imageCollections.push(...this.images)
-      this.images.push(...this.imageCollections.splice(0, 15))
-//      let index = randomInteger(0, this.imageCollections.length)
-//      let tmpImage = this.images[index];
-//
-//      this.images[index] = this.imageCollections.splice(
-//        randomInteger(0, this.imageCollections.length),
-//        1
-//      )[0];
-//      this.imageCollections.push(tmpImage);
-      setTimeout(() => this.changeImage(), randomInteger(1, 3) * 1000);
+      let index = randomInteger(0, this.images[0].length);
+      let currentState = this.imagesHide[index] || 0
+      this.imageCollections.push(this.images[currentState][index]);
+      Vue.set(
+        this.images[currentState ? 0 : 1],
+        index,
+        this.imageCollections.splice(
+          randomInteger(0, this.imageCollections.length),
+          1
+        )[0]
+      );
+      Vue.set(this.imagesHide, index, currentState ? 0 : 1);
+      setTimeout(() => this.changeImage(), 1000);
     }
   },
   created: function() {
-    this.images.push(...this.imageCollections.splice(0, 15))
+    this.images[0].push(...this.imageCollections.splice(0, 15));
     setTimeout(() => this.changeImage(), 1000);
-  },
+  }
 };
 </script>
 <style lang="sass">
@@ -156,12 +180,13 @@ export default {
   height: 1090px
 .imagePlace
   position: absolute
-  overflow: hidden
-  background: white
-  box-shadow: 0 0 19px 7px rgba(0,0,0,0.3)
-  img
-    width: 100%
-    height: 100%
-
-
+  left: 50%
+  .imageWrap
+    box-shadow: 0 0 19px 7px rgba(0,0,0,0.3)
+.fade-enter-active
+  transition: all .5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+.fade-leave-active
+  transition: all .5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+.fade-enter, .fade-leave-to
+  opacity: 0
 </style>
