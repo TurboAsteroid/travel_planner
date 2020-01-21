@@ -1,14 +1,18 @@
 <template>
-  <GoogleMapLoader apiKey="AIzaSyC8RRX0sndMP1sTQdEKOtzbBPoNR2BO2GU" />
+  <TravelMap class="travel-map" />
 </template>
 <script>
-import GoogleMapLoader from "../googleMap/googleMap";
+import TravelMap from "../googleMap/TravelMap.vue";
 
 export default {
+  name: "Map",
   components: {
-    GoogleMapLoader
+    TravelMap
   },
-
-  data() {}
+  data: () => ({})
 };
 </script>
+<style lang="sass" scoped>
+.travel-map
+  height: 400px
+</style>

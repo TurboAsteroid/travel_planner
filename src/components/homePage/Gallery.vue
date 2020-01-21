@@ -1,134 +1,167 @@
 <template>
-  <v-container>
-    <v-layout text-center wrap>
-      <v-flex xs12>
-        <v-img
-          :src="require('../../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
-        ></v-img>
-      </v-flex>
-
-      <v-flex mb-4>
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
-        </h1>
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br />please join our online
-          <a href="https://community.vuetifyjs.com" target="_blank"
-            >Discord Community</a
-          >
-        </p>
-      </v-flex>
-
-      <v-flex mb-5 xs12>
-        <h2 class="headline font-weight-bold mb-3">What's next?</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-
-      <v-flex xs12 mb-5>
-        <h2 class="headline font-weight-bold mb-3">Important Links</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-
-      <v-flex xs12 mb-5>
-        <h2 class="headline font-weight-bold mb-3">Ecosystem</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-    </v-layout>
+  <v-container id="galleryWrap">
+    <div
+      v-for="(place, i) in places"
+      class="imagePlace"
+      :id="'imagePlace_' + i"
+      v-bind:key="i"
+      v-bind:style="{
+        width: place.size,
+        height: place.size,
+        top: place.top,
+        left: place.left
+      }"
+    >
+      <img :src="images[i]" aspect-ratio="1" />
+    </div>
   </v-container>
 </template>
 
 <script>
+function randomInteger(min, max) {
+  // случайное число от min до (max+1)
+  let rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
+}
 export default {
-  name: "HelloWorld",
-
+  name: "Gallery",
   data: () => ({
-    ecosystem: [
+    images: [],
+    publicPath: process.env.BASE_URL,
+    places: [
       {
-        text: "vuetify-loader",
-        href: "https://github.com/vuetifyjs/vuetify-loader"
+        top: "30px",
+        left: "160px",
+        size: "180px"
       },
       {
-        text: "github",
-        href: "https://github.com/vuetifyjs/vuetify"
+        top: "210px",
+        left: "40px",
+        size: "225px"
       },
       {
-        text: "awesome-vuetify",
-        href: "https://github.com/vuetifyjs/awesome-vuetify"
+        top: "325px",
+        left: "265px",
+        size: "290px"
+      },
+      {
+        top: "615px",
+        left: "80px",
+        size: "290px"
+      },
+      {
+        top: "45px",
+        left: "555px",
+        size: "290px"
+      },
+      {
+        top: "330px",
+        left: "555px",
+        size: "410px"
+      },
+      {
+        top: "735px",
+        left: "370px",
+        size: "120px"
+      },
+      {
+        top: "735px",
+        left: "485px",
+        size: "185px"
+      },
+      {
+        top: "735px",
+        left: "670px",
+        size: "295px"
+      },
+      {
+        top: "145px",
+        left: "965px",
+        size: "185px"
+      },
+      {
+        top: "330px",
+        left: "965px",
+        size: "290px"
+      },
+      {
+        top: "615px",
+        left: "965px",
+        size: "185px"
+      },
+      {
+        top: "45px",
+        left: "1150px",
+        size: "285px"
+      },
+      {
+        size: "180px",
+        top: "330px",
+        left: "1255px"
+      },
+      {
+        top: "615px",
+        left: "1150px",
+        size: "370px"
       }
     ],
-    importantLinks: [
-      {
-        text: "Documentation",
-        href: "https://vuetifyjs.com"
-      },
-      {
-        text: "Chat",
-        href: "https://community.vuetifyjs.com"
-      },
-      {
-        text: "Made with Vuetify",
-        href: "https://madewithvuejs.com/vuetify"
-      },
-      {
-        text: "Twitter",
-        href: "https://twitter.com/vuetifyjs"
-      },
-      {
-        text: "Articles",
-        href: "https://medium.com/vuetify"
-      }
-    ],
-    whatsNext: [
-      {
-        text: "Explore components",
-        href: "https://vuetifyjs.com/components/api-explorer"
-      },
-      {
-        text: "Select a layout",
-        href: "https://vuetifyjs.com/layout/pre-defined"
-      },
-      {
-        text: "Frequently Asked Questions",
-        href: "https://vuetifyjs.com/getting-started/frequently-asked-questions"
-      }
+    imageCollections: [
+      "gallery/1.jpg",
+      "gallery/2.jpg",
+      "gallery/3.jpg",
+      "gallery/4.jpg",
+      "gallery/5.jpg",
+      "gallery/6.jpg",
+      "gallery/7.jpg",
+      "gallery/8.jpg",
+      "gallery/9.jpg",
+      "gallery/10.jpg",
+      "gallery/11.jpg",
+      "gallery/12.jpg",
+      "gallery/13.jpg",
+      "gallery/14.jpg",
+      "gallery/15.jpg",
+      "gallery/16.jpg",
+      "gallery/17.jpg",
+      "gallery/18.jpg",
+      "gallery/19.jpg",
+      "gallery/20.jpg"
     ]
-  })
+  }),
+  methods: {
+    changeImage: function() {
+      this.imageCollections.push(...this.images)
+      this.images.push(...this.imageCollections.splice(0, 15))
+//      let index = randomInteger(0, this.imageCollections.length)
+//      let tmpImage = this.images[index];
+//
+//      this.images[index] = this.imageCollections.splice(
+//        randomInteger(0, this.imageCollections.length),
+//        1
+//      )[0];
+//      this.imageCollections.push(tmpImage);
+      setTimeout(() => this.changeImage(), randomInteger(1, 3) * 1000);
+    }
+  },
+  created: function() {
+    this.images.push(...this.imageCollections.splice(0, 15))
+    setTimeout(() => this.changeImage(), 1000);
+  },
 };
 </script>
+<style lang="sass">
+#galleryWrap
+  position: relative
+  margin: 150px auto
+  height: 1090px
+.imagePlace
+  position: absolute
+  overflow: hidden
+  background: white
+  box-shadow: 0 0 19px 7px rgba(0,0,0,0.3)
+  img
+    width: 100%
+    height: 100%
+
+
+</style>

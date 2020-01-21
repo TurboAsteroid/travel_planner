@@ -18,12 +18,17 @@ export default {
   },
 
   mounted() {
-    new this.google.maps.Marker({
+    const { Marker } = this.google.maps;
+
+    new Marker({
       position: this.marker.position,
       marker: this.marker,
       map: this.map,
       icon: POINT_MARKER_ICON_CONFIG
     });
+  },
+  render() {
+    return "";
   }
 };
 </script>
