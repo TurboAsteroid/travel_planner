@@ -1,16 +1,10 @@
 <template>
   <v-container id="galleryWrap">
     <div
-      v-for="(place, i) in places"
+      v-for="i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]"
       class="imagePlace"
       :id="'imagePlace_' + i"
       v-bind:key="i"
-      v-bind:style="{
-        width: place.size,
-        height: place.size,
-        top: place.top,
-        marginLeft: place.left
-      }"
     >
       <transition name="fade" mode="out-in">
         <div v-if="!imagesHide[i]" class="imageWrap">
@@ -43,110 +37,27 @@ export default {
     images: [[], []],
     imagesHide: [],
     publicPath: process.env.BASE_URL,
-    places: [
-      {
-        top: "30px",
-        left: "-620px",
-        size: "180px"
-      },
-      {
-        top: "210px",
-        left: "-740px",
-        size: "225px"
-      },
-      {
-        top: "325px",
-        left: "-515px",
-        size: "290px"
-      },
-      {
-        top: "615px",
-        left: "-705px",
-        size: "290px"
-      },
-      {
-        top: "35px",
-        left: "-225px",
-        size: "290px"
-      },
-      {
-        top: "325px",
-        left: "-225px",
-        size: "410px"
-      },
-      {
-        top: "735px",
-        left: "-415px",
-        size: "120px"
-      },
-      {
-        top: "735px",
-        left: "-295px",
-        size: "185px"
-      },
-      {
-        top: "735px",
-        left: "-110px",
-        size: "295px"
-      },
-      {
-        top: "140px",
-        left: "185px",
-        size: "185px"
-      },
-      {
-        top: "325px",
-        left: "185px",
-        size: "290px"
-      },
-      {
-        top: "615px",
-        left: "185px",
-        size: "185px"
-      },
-      {
-        top: "40px",
-        left: "370px",
-        size: "285px"
-      },
-      {
-        size: "180px",
-        left: "475px",
-        top: "325px"
-      },
-      {
-        top: "615px",
-        left: "370px",
-        size: "370px"
-      }
-    ],
     imageCollections: [
-      "https://i.picsum.photos/id/1/500/500.jpg",
-      "https://i.picsum.photos/id/2/500/500.jpg",
-      "https://i.picsum.photos/id/3/500/500.jpg",
-      "https://i.picsum.photos/id/4/500/500.jpg",
-      "https://i.picsum.photos/id/5/500/500.jpg",
-      "https://i.picsum.photos/id/6/500/500.jpg",
-      "https://i.picsum.photos/id/7/500/500.jpg",
-      "https://i.picsum.photos/id/8/500/500.jpg",
-      "https://i.picsum.photos/id/9/500/500.jpg",
-      "https://i.picsum.photos/id/10/500/500.jpg",
-      "https://i.picsum.photos/id/11/500/500.jpg",
-      "https://i.picsum.photos/id/12/500/500.jpg",
-      "https://i.picsum.photos/id/13/500/500.jpg",
-      "https://i.picsum.photos/id/14/500/500.jpg",
-      "https://i.picsum.photos/id/15/500/500.jpg",
-      "https://i.picsum.photos/id/16/500/500.jpg",
-      "https://i.picsum.photos/id/17/500/500.jpg",
-      "https://i.picsum.photos/id/18/500/500.jpg",
-      "https://i.picsum.photos/id/19/500/500.jpg",
-      "https://i.picsum.photos/id/20/500/500.jpg",
-      "https://i.picsum.photos/id/21/500/500.jpg",
-      "https://i.picsum.photos/id/22/500/500.jpg",
-      "https://i.picsum.photos/id/23/500/500.jpg",
-      "https://i.picsum.photos/id/24/500/500.jpg",
-      "https://i.picsum.photos/id/25/500/500.jpg",
-      "https://i.picsum.photos/id/26/500/500.jpg"
+      "gallery/1.jpg",
+      "gallery/2.jpg",
+      "gallery/3.jpg",
+      "gallery/4.jpg",
+      "gallery/5.jpg",
+      "gallery/6.jpg",
+      "gallery/7.jpg",
+      "gallery/8.jpg",
+      "gallery/9.jpg",
+      "gallery/10.jpg",
+      "gallery/11.jpg",
+      "gallery/12.jpg",
+      "gallery/13.jpg",
+      "gallery/14.jpg",
+      "gallery/15.jpg",
+      "gallery/16.jpg",
+      "gallery/17.jpg",
+      "gallery/18.jpg",
+      "gallery/19.jpg",
+      "gallery/20.jpg"
     ],
     tmpArray: []
   }),
@@ -178,11 +89,144 @@ export default {
   position: relative
   margin: 150px auto
   height: 1090px
+  @media (max-width: 1263px)
+    height: 670px
 .imagePlace
   position: absolute
   left: 50%
+  transition: all .8s
   .imageWrap
     box-shadow: 0 0 19px 7px rgba(0,0,0,0.3)
+#imagePlace_0
+  top: 30px
+  margin-left: -620px
+  width: 180px
+  @media screen and (max-width: 1904px)
+    margin-left: -630px
+  @media (max-width: 1263px)
+    width: 120px
+    margin-left: -495px
+#imagePlace_1
+  top: 210px
+  margin-left: -740px
+  width: 225px
+  @media screen and (max-width: 1904px)
+    top: 100px
+    margin-left: -450px
+  @media (max-width: 1263px)
+    width: 150px
+    top: 75px
+    margin-left: -375px
+#imagePlace_2
+  top: 325px
+  margin-left: -515px
+  width: 290px
+  @media (max-width: 1263px)
+    top: 225px
+    width: 200px
+#imagePlace_3
+  top: 615px
+  margin-left: -705px
+  width: 290px
+  @media screen and (max-width: 1904px)
+    margin-left: -635px
+  @media (max-width: 1263px)
+    width: 190px
+    top: 425px
+    margin-left: -460px
+#imagePlace_4
+  top: 35px
+  margin-left: -225px
+  width: 290px
+  @media (max-width: 1263px)
+    width: 190px
+    top: -35px
+#imagePlace_5
+  top: 325px
+  margin-left: -225px
+  width: 410px
+  @media (max-width: 1263px)
+    width: 270px
+    top: 155px
+#imagePlace_6
+  top: 735px
+  margin-left: -415px
+  width: 120px
+  @media screen and (max-width: 1904px)
+    top: 615px
+    margin-left: -345px
+  @media (max-width: 1263px)
+    top: 280px
+    margin-left: -315px
+    width: 90px
+#imagePlace_7
+  top: 735px
+  margin-left: -295px
+  width: 185px
+  @media (max-width: 1263px)
+    top: 525px
+    margin-left: -210px
+    width: 125px
+#imagePlace_8
+  top: 735px
+  margin-left: -110px
+  width: 295px
+  @media (max-width: 1263px)
+    width: 190px
+    top: 425px
+    margin-left: -85px
+#imagePlace_9
+  top: 140px
+  margin-left: 185px
+  width: 185px
+  height: 185px
+  @media screen and (max-width: 1904px)
+    margin-left: 65px
+  @media (max-width: 1263px)
+    width: 120px
+    top: 35px
+    margin-left: 45px
+#imagePlace_10
+  top: 325px
+  margin-left: 185px
+  width: 290px
+  @media (max-width: 1263px)
+    width: 190px
+    top: 155px
+    margin-left: 45px
+#imagePlace_11
+  top: 615px
+  margin-left: 185px
+  width: 185px
+  @media (max-width: 1263px)
+    width: 120px
+    top: 345px
+    margin-left: 115px
+#imagePlace_12
+  top: 40px
+  margin-left: 370px
+  width: 285px
+  @media screen and (max-width: 1904px)
+    margin-left: 250px
+  @media (max-width: 1263px)
+    width: 190px
+    margin-left: 235px
+#imagePlace_13
+  top: 325px
+  margin-left: 475px
+  width: 180px
+  @media (max-width: 1263px)
+    width: 120px
+    margin-left: 235px
+    top: 270px
+#imagePlace_14
+  top: 615px
+  margin-left: 370px
+  width: 370px
+  @media (max-width: 1263px)
+    width: 245px
+    top: 390px
+    margin-left: 235px
 .fade-enter-active
   transition: all .5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
 .fade-leave-active
