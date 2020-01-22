@@ -31,9 +31,9 @@
 export default {
   name: "SimpleForm",
   data: () => ({}),
-  methods:{
-    openForm: function () {
-      window.open('http://bit.ly/yourtravelplanner', '_blank');
+  methods: {
+    openForm: function() {
+      window.open("http://bit.ly/yourtravelplanner", "_blank");
     }
   }
 };

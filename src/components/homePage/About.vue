@@ -7,7 +7,7 @@
             <v-img id="aboutSvg" :src="require('../../assets/about.svg')" />
           </v-container>
         </v-col>
-        <v-col cols="12" md="6" class="pa-0 pl-12 white--text">
+        <v-col cols="12" md="6" class="pa-0 pl-12 white--text" id="conditionsBlockId">
           <v-container class="fill-height align-items-start">
             <v-row class="aboutText">
               <div class="mb-5 headerText">
@@ -42,7 +42,7 @@
                 </a>
               </p>
             </v-row>
-            <v-row class="aboutText">
+            <v-row class="aboutText" id="faqBlockId">
               <div class="mb-5 headerText">
                 <img
                   class="aboutSvgS pa-0 d-md-none"
@@ -73,17 +73,20 @@
                   Остались вопросы? читайте наш
                   <span style="text-decoration: underline">FAQ</span>
                 </a>
-                <v-dialog v-model="dialogOpen"  max-width="50%">
-
+                <v-dialog v-model="dialogOpen" max-width="50%">
                   <v-card>
                     <Faq />
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn color="green darken-1" text @click="dialogOpen = false">Продолжить</v-btn>
+                      <v-btn
+                        color="green darken-1"
+                        text
+                        @click="dialogOpen = false"
+                        >Продолжить</v-btn
+                      >
                     </v-card-actions>
                   </v-card>
                 </v-dialog>
-
               </p>
             </v-row>
           </v-container>
@@ -104,9 +107,9 @@ export default {
   data: () => ({
     dialogOpen: false
   }),
-  methods:{
-    openForm: function () {
-      window.open('http://bit.ly/yourtravelplanner', '_blank');
+  methods: {
+    openForm: function() {
+      window.open("http://bit.ly/yourtravelplanner", "_blank");
     }
   }
 };

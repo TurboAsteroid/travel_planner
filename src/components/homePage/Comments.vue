@@ -1,5 +1,5 @@
 <template>
-  <v-container class="text-center my-12 pa-12">
+  <v-container class="text-center my-12 pa-12" id="commentsBlockId">
     <v-row>
       <v-col class="headerText">
         Отзывы
@@ -49,7 +49,14 @@
     </v-row>
     <v-row>
       <v-col class="headerText">
-        <v-btn @click.stop="dialogOpen = true" rounded color="#000" dark x-large class="buttonBlack">
+        <v-btn
+          @click.stop="dialogOpen = true"
+          rounded
+          color="#000"
+          dark
+          x-large
+          class="buttonBlack"
+        >
           Оставить отзыв
         </v-btn>
         <v-dialog v-model="dialogOpen" persistent max-width="50%">
@@ -72,13 +79,13 @@ export default {
   data: () => ({
     dialogOpen: false
   }),
-  methods:{
-    openForm: function () {
-      window.open('http://bit.ly/yourtravelplanner', '_blank');
+  methods: {
+    openForm: function() {
+      window.open("http://bit.ly/yourtravelplanner", "_blank");
     },
-    onCloseChild: function (value) {
-      console.log('valuevaluevalue', value) // someValue
-      this.dialogOpen = false
+    onCloseChild: function(value) {
+      console.log("valuevaluevalue", value); // someValue
+      this.dialogOpen = false;
     }
   }
 };

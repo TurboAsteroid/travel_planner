@@ -1,17 +1,14 @@
 <template>
   <v-container id="galleryWrap">
     <div
-      v-for="i in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]"
+      v-for="i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]"
       class="imagePlace"
       :id="'imagePlace_' + i"
       v-bind:key="i"
     >
       <transition name="fade" mode="out-in">
         <div v-if="!imagesHide[i]" class="imageWrap">
-          <v-img
-            :src="images[0][i]"
-            aspect-ratio="1"
-          />
+          <v-img :src="images[0][i]" aspect-ratio="1" />
         </div>
         <div v-else :key="i" class="imageWrap">
           <v-img
@@ -64,7 +61,7 @@ export default {
   methods: {
     changeImage: function() {
       let index = randomInteger(0, this.images[0].length);
-      let currentState = this.imagesHide[index] || 0
+      let currentState = this.imagesHide[index] || 0;
       this.imageCollections.push(this.images[currentState][index]);
       Vue.set(
         this.images[currentState ? 0 : 1],

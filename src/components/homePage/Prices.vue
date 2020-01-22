@@ -103,12 +103,14 @@
         <a id="smallLink" @click.stop="dialogOpen = true">
           Подробные условия
         </a>
-        <v-dialog v-model="dialogOpen"  max-width="50%">
+        <v-dialog v-model="dialogOpen" max-width="50%">
           <v-card>
             <Conditions />
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="green darken-1" text @click="dialogOpen = false">Продолжить</v-btn>
+              <v-btn color="green darken-1" text @click="dialogOpen = false"
+                >Продолжить</v-btn
+              >
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -127,9 +129,9 @@ export default {
   data: () => ({
     dialogOpen: false
   }),
-  methods:{
-    openForm: function () {
-      window.open('http://bit.ly/yourtravelplanner', '_blank');
+  methods: {
+    openForm: function() {
+      window.open("http://bit.ly/yourtravelplanner", "_blank");
     }
   }
 };

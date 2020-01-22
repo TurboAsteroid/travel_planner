@@ -1,7 +1,7 @@
 <template>
-  <v-app>
+  <v-app v-scroll="onScroll">
     <v-app-bar color="transparent" collapse flat fixed dark>
-      <v-icon @click.stop="model = !model">mdi-dots-vertical</v-icon>
+      <v-icon @click.stop="model = !model" x-large v-bind:color="colorI">mdi-dots-vertical-circle-outline</v-icon>
     </v-app-bar>
     <v-navigation-drawer
       v-model="model"
@@ -11,24 +11,7 @@
       color="rgba(26, 26, 26)"
       dark
     >
-      <v-list dense nav>
-        <v-list-item>
-          <v-btn icon @click.stop="model = !model">
-            <v-icon>mdi-chevron-left</v-icon>
-          </v-btn>
-        </v-list-item>
-      </v-list>
-      <v-divider></v-divider>
-      <v-list dense nav>
-        <v-list-item v-for="item in menu" :key="item.name" link :href="item.href">
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>{{ item.name }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
+      <LeftMenu @closed="closeMenu" @clickMenu="clickMenu" />
     </v-navigation-drawer>
     <template v-for="(item, index) in componentsList">
       <div :id="item" :key="index">
@@ -49,6 +32,8 @@ import Map from "@/components/homePage/Map.vue";
 import Comments from "@/components/homePage/Comments.vue";
 import Footer from "@/components/homePage/Footer.vue";
 
+import LeftMenu from "@/components/LeftMenu.vue";
+
 export default {
   name: "home",
   dialogOpen: false,
@@ -61,29 +46,13 @@ export default {
     LinkToForm,
     Map,
     Comments,
-    Footer
+    Footer,
+    LeftMenu
   },
   data: () => ({
+    colorI: "#fff",
     model: null,
-    menu: [
-      {
-        icon: "mdi-map-search",
-        name: "Составить маршрут",
-        href: "http://bit.ly/yourtravelplanner"
-      },
-      {
-        icon: "mdi-frequently-asked-questions",
-        name: "FAQ"
-      },
-      {
-        icon: "mdi-image-search",
-        name: "Подробные условия"
-      },
-      {
-        icon: "mdi-comment-text-multiple-outline",
-        name: "Отзывы"
-      }
-    ],
+    offsetTop: 0,
     componentsList: [
       "Header",
       "SimpleForm",
@@ -96,10 +65,41 @@ export default {
       "Footer"
     ]
   }),
+  methods: {
+    closeMenu: function() {
+      this.model = false;
+    },
+    clickMenu: function (params) {
+      if (params.action == 'open') {
+        this.model = false;
+        window.open(params.place, "_blank");
+      } else if (params.action == 'scroll') {
+        this.model = false;
+        this.$vuetify.goTo(params.place, {})
+      }
+    },
+    onScroll (e) {
+      let y1 = document.getElementById('SimpleForm').getBoundingClientRect().y
+      let y2 = document.getElementById('Prices').getBoundingClientRect().y
+      let y3 = document.getElementById('LinkToForm').getBoundingClientRect().y
+      let y4 = document.getElementById('Comments').getBoundingClientRect().y
+      let h1 = document.getElementById('SimpleForm').getBoundingClientRect().height
+      let h2 = document.getElementById('Prices').getBoundingClientRect().height
+      let h3 = document.getElementById('LinkToForm').getBoundingClientRect().height
+      let h4 = document.getElementById('Comments').getBoundingClientRect().height
 
-  methods:{
-    openForm: function () {
-      window.open('http://bit.ly/yourtravelplanner', '_blank');
+      if (
+        (y1 < 0 && y1 + h1 > 0) ||
+        (y2 < 0 && y2 + h2 > 0) ||
+        (y3 < 0 && y3 + h3 > 0) ||
+        (y4 < 0 && y4 + h4 > 0)
+      ) {
+        this.colorI = "#000"
+      } else {
+        this.colorI = "#fff"
+      }
+
+      this.offsetTop = e.target.scrollTop
     }
   }
 };
