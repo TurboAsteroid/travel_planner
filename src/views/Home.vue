@@ -20,7 +20,7 @@
       </v-list>
       <v-divider></v-divider>
       <v-list dense nav>
-        <v-list-item v-for="item in menu" :key="item.name" link>
+        <v-list-item v-for="item in menu" :key="item.name" link :href="item.href">
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
@@ -51,6 +51,7 @@ import Footer from "@/components/homePage/Footer.vue";
 
 export default {
   name: "home",
+  dialogOpen: false,
   components: {
     Header,
     SimpleForm,
@@ -67,7 +68,8 @@ export default {
     menu: [
       {
         icon: "mdi-map-search",
-        name: "Составить маршрут"
+        name: "Составить маршрут",
+        href: "http://bit.ly/yourtravelplanner"
       },
       {
         icon: "mdi-frequently-asked-questions",
@@ -93,7 +95,13 @@ export default {
       "Comments",
       "Footer"
     ]
-  })
+  }),
+
+  methods:{
+    openForm: function () {
+      window.open('http://bit.ly/yourtravelplanner', '_blank');
+    }
+  }
 };
 </script>
 <style lang="sass">

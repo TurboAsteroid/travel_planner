@@ -36,7 +36,7 @@
                 всеми вашими запросами, планами, мечтами и возможностями!
               </p>
               <p>
-                <a class="regularText">
+                <a class="regularText" @click="openForm()">
                   Заполнить форму вы можете прямо сейчас
                   <v-icon right>mdi-chevron-right-circle</v-icon>
                 </a>
@@ -69,10 +69,21 @@
                 всеми вашими запросами, планами, мечтами и возможностями!
               </p>
               <p>
-                <a class="regularText">
+                <a class="regularText" @click.stop="dialogOpen = true">
                   Остались вопросы? читайте наш
                   <span style="text-decoration: underline">FAQ</span>
                 </a>
+                <v-dialog v-model="dialogOpen"  max-width="50%">
+
+                  <v-card>
+                    <Faq />
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn color="green darken-1" text @click="dialogOpen = false">Продолжить</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+
               </p>
             </v-row>
           </v-container>
@@ -84,9 +95,20 @@
 </template>
 
 <script>
+import Faq from "@/components/Faq.vue";
 export default {
   name: "About",
-  data: () => ({})
+  components: {
+    Faq
+  },
+  data: () => ({
+    dialogOpen: false
+  }),
+  methods:{
+    openForm: function () {
+      window.open('http://bit.ly/yourtravelplanner', '_blank');
+    }
+  }
 };
 </script>
 <style lang="sass">

@@ -17,6 +17,7 @@
           x-large
           xs="12"
           class="buttonBlack"
+          @click="openForm()"
         >
           Составить маршрут
         </v-btn>
@@ -29,7 +30,12 @@
 <script>
 export default {
   name: "SimpleForm",
-  data: () => ({})
+  data: () => ({}),
+  methods:{
+    openForm: function () {
+      window.open('http://bit.ly/yourtravelplanner', '_blank');
+    }
+  }
 };
 </script>
 <style lang="sass">

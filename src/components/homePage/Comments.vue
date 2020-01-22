@@ -49,18 +49,38 @@
     </v-row>
     <v-row>
       <v-col class="headerText">
-        <v-btn rounded color="#000" dark x-large class="buttonBlack">
+        <v-btn @click.stop="dialogOpen = true" rounded color="#000" dark x-large class="buttonBlack">
           Оставить отзыв
         </v-btn>
+        <v-dialog v-model="dialogOpen" persistent max-width="50%">
+          <v-card>
+            <CommentForm @closed="onCloseChild" />
+          </v-card>
+        </v-dialog>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import CommentForm from "@/components/CommentForm.vue";
 export default {
   name: "Comments",
-  data: () => ({})
+  components: {
+    CommentForm
+  },
+  data: () => ({
+    dialogOpen: false
+  }),
+  methods:{
+    openForm: function () {
+      window.open('http://bit.ly/yourtravelplanner', '_blank');
+    },
+    onCloseChild: function (value) {
+      console.log('valuevaluevalue', value) // someValue
+      this.dialogOpen = false
+    }
+  }
 };
 </script>
 <style lang="sass">

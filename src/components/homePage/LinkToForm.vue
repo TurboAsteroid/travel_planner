@@ -12,7 +12,7 @@
     </v-row>
     <v-row>
       <v-col class="headerText">
-        <v-btn rounded color="#000" dark x-large class="buttonBlack">
+        <v-btn rounded color="#000" dark x-large class="buttonBlack" @click="openForm()">
           Составить маршрут
         </v-btn>
       </v-col>
@@ -23,6 +23,11 @@
 <script>
 export default {
   name: "LinkToForm",
-  data: () => ({})
+  data: () => ({}),
+  methods:{
+    openForm: function () {
+      window.open('http://bit.ly/yourtravelplanner', '_blank');
+    }
+  }
 };
 </script>
