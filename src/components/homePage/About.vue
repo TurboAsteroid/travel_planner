@@ -7,7 +7,12 @@
             <v-img id="aboutSvg" :src="require('../../assets/about.svg')" />
           </v-container>
         </v-col>
-        <v-col cols="12" md="6" class="pa-0 pl-12 white--text" id="conditionsBlockId">
+        <v-col
+          cols="12"
+          md="6"
+          class="pa-0 pl-12 white--text"
+          id="conditionsBlockId"
+        >
           <v-container class="fill-height align-items-start">
             <v-row class="aboutText">
               <div class="mb-5 headerText">

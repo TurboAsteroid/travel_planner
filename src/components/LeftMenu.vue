@@ -9,7 +9,12 @@
     </v-list>
     <v-divider></v-divider>
     <v-list dense nav>
-      <v-list-item v-for="item in menu" :key="item.name" link @click.stop="menuClick(item)">
+      <v-list-item
+        v-for="item in menu"
+        :key="item.name"
+        link
+        @click.stop="menuClick(item)"
+      >
         <v-list-item-action>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-action>
@@ -29,7 +34,7 @@ export default {
       {
         icon: "mdi-map-search",
         name: "Составить маршрут",
-        action: 'open',
+        action: "open",
         place: "http://bit.ly/yourtravelplanner"
       },
       {

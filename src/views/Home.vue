@@ -1,7 +1,9 @@
 <template>
   <v-app v-scroll="onScroll">
     <v-app-bar color="transparent" collapse flat fixed dark>
-      <v-icon @click.stop="model = !model" x-large v-bind:color="colorI">mdi-dots-vertical-circle-outline</v-icon>
+      <v-icon @click.stop="model = !model" x-large v-bind:color="colorI"
+        >mdi-dots-vertical-circle-outline</v-icon
+      >
     </v-app-bar>
     <v-navigation-drawer
       v-model="model"
@@ -69,24 +71,27 @@ export default {
     closeMenu: function() {
       this.model = false;
     },
-    clickMenu: function (params) {
-      if (params.action == 'open') {
+    clickMenu: function(params) {
+      if (params.action == "open") {
         this.model = false;
         window.open(params.place, "_blank");
-      } else if (params.action == 'scroll') {
+      } else if (params.action == "scroll") {
         this.model = false;
-        this.$vuetify.goTo(params.place, {})
+        this.$vuetify.goTo(params.place, {});
       }
     },
-    onScroll (e) {
-      let y1 = document.getElementById('SimpleForm').getBoundingClientRect().y
-      let y2 = document.getElementById('Prices').getBoundingClientRect().y
-      let y3 = document.getElementById('LinkToForm').getBoundingClientRect().y
-      let y4 = document.getElementById('Comments').getBoundingClientRect().y
-      let h1 = document.getElementById('SimpleForm').getBoundingClientRect().height
-      let h2 = document.getElementById('Prices').getBoundingClientRect().height
-      let h3 = document.getElementById('LinkToForm').getBoundingClientRect().height
-      let h4 = document.getElementById('Comments').getBoundingClientRect().height
+    onScroll(e) {
+      let y1 = document.getElementById("SimpleForm").getBoundingClientRect().y;
+      let y2 = document.getElementById("Prices").getBoundingClientRect().y;
+      let y3 = document.getElementById("LinkToForm").getBoundingClientRect().y;
+      let y4 = document.getElementById("Comments").getBoundingClientRect().y;
+      let h1 = document.getElementById("SimpleForm").getBoundingClientRect()
+        .height;
+      let h2 = document.getElementById("Prices").getBoundingClientRect().height;
+      let h3 = document.getElementById("LinkToForm").getBoundingClientRect()
+        .height;
+      let h4 = document.getElementById("Comments").getBoundingClientRect()
+        .height;
 
       if (
         (y1 < 0 && y1 + h1 > 0) ||
@@ -94,12 +99,12 @@ export default {
         (y3 < 0 && y3 + h3 > 0) ||
         (y4 < 0 && y4 + h4 > 0)
       ) {
-        this.colorI = "#000"
+        this.colorI = "#000";
       } else {
-        this.colorI = "#fff"
+        this.colorI = "#fff";
       }
 
-      this.offsetTop = e.target.scrollTop
+      this.offsetTop = e.target.scrollTop;
     }
   }
 };
