@@ -4,7 +4,7 @@
       <v-row class="pa-3">
         <v-col cols="12" md="6" class="pa-0 d-none d-md-flex">
           <v-container class="pr-12">
-            <v-img id="aboutSvg" :src="require('../../assets/about.svg')" />
+            <img id="aboutSvg" :src="require('../../assets/about.svg')" />
           </v-container>
         </v-col>
         <v-col
@@ -20,7 +20,6 @@
                   class="aboutSvgS pa-0 d-md-none"
                   :src="require('../../assets/aboutT.svg')"
                 />
-                <wbr />
                 Как это работает?
               </div>
               <p class="regularText">
@@ -53,7 +52,6 @@
                   class="aboutSvgS pa-0 d-md-none"
                   :src="require('../../assets/aboutB.svg')"
                 />
-                <wbr />
                 Как это работает?
               </div>
               <p class="regularText">
@@ -137,7 +135,8 @@ export default {
   font-weight: bold
 #aboutSvg
   @media (max-width: 960px)
-    height: 0
+    display: none
+  img
 .aboutSvgS
   height: 150px
   vertical-align: middle
