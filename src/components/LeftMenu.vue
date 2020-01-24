@@ -1,5 +1,5 @@
 <template>
-  <v-component>
+  <div>
     <v-list dense nav>
       <v-list-item>
         <v-btn icon @click.stop="closeMenu()">
@@ -23,43 +23,50 @@
         </v-list-item-content>
       </v-list-item>
     </v-list>
-  </v-component>
+  </div>
 </template>
 
 <script>
 export default {
   name: "LeftMenu",
-  data: () => ({
-    menu: [
-      {
-        icon: "mdi-map-search",
-        name: "Составить маршрут",
-        action: "open",
-        place: "http://bit.ly/yourtravelplanner"
-      },
-      {
-        icon: "mdi-frequently-asked-questions",
-        name: "faq",
-        action: "scroll",
-        place: "#faqBlockId"
-      },
-      {
-        icon: "mdi-image-search",
-        name: "Подробные условия",
-        action: "scroll",
-        place: "#conditionsBlockId"
-      },
-      {
-        icon: "mdi-comment-text-multiple-outline",
-        name: "Отзывы",
-        action: "scroll",
-        place: "#commentsBlockId"
-      }
-    ]
-  }),
+  data() {
+    return {
+      menu: [
+        {
+          icon: "mdi-map-search",
+          name: "Составить маршрут",
+          action: "open",
+          place: this.formUrl
+        },
+        {
+          icon: "mdi-frequently-asked-questions",
+          name: "faq",
+          action: "scroll",
+          place: "#faqBlockId"
+        },
+        {
+          icon: "mdi-image-search",
+          name: "Подробные условия",
+          action: "scroll",
+          place: "#conditionsBlockId"
+        },
+        {
+          icon: "mdi-comment-text-multiple-outline",
+          name: "Отзывы",
+          action: "scroll",
+          place: "#commentsBlockId"
+        }
+      ]
+    }
+  },
+  computed: {
+    formUrl () {
+      return this.$store.state.global.formUrl
+    }
+  },
   methods: {
     openForm: function() {
-      window.open("http://bit.ly/yourtravelplanner", "_blank");
+      window.open(this.formUrl, "_blank");
     },
     closeMenu() {
       this.$emit("closed");

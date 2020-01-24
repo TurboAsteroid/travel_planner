@@ -131,6 +131,7 @@ export default {
   background: #fff
 #Gallery
   background: #488cae
+  overflow: hidden
 #LinkToForm
   background: #fff
 #Map

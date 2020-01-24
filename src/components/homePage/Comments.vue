@@ -1,4 +1,4 @@
-<template>
+<template v-if="showComments">
   <v-container class="text-center my-12 pa-12" id="commentsBlockId">
     <v-row>
       <v-col class="headerText">
@@ -7,40 +7,24 @@
     </v-row>
     <v-row>
       <v-col>
-        <v-carousel hide-delimiters class="d-md-none" height="300">
-          <v-carousel-item v-for="n in 15" :key="n">
-            <v-card color="#e6e6e6" class="ma-4 carouselCard text-left">
-              <v-card-subtitle class="black--text">
-                <span class="float-right">01.01.0001</span>
-                <span>Добрый жук</span>
-              </v-card-subtitle>
-              <v-card-text class="black--text">
-                Выражаю благодарность менеджеру Марии. Являюсь вашим клиентом и
-                всегда встречаю радушие, понимание и отзывчивость! Благодарю за
-                отличную работу и ту радость, что вы нам дарите, отправляя нас в
-                путешествия!
-              </v-card-text>
-            </v-card>
-          </v-carousel-item>
-        </v-carousel>
-
         <v-slide-group
           class="pa-4 d-none d-md-flex"
           show-arrows
           prev-icon="mdi-chevron-left-circle"
           next-icon="mdi-chevron-right-circle"
         >
-          <v-slide-item v-for="n in 15" :key="n">
+          <v-slide-item v-for="(item, key) in comments" :key="key">
             <v-card color="#e6e6e6" class="ma-4 carouselCard text-left">
               <v-card-subtitle class="black--text">
-                <span class="float-right">01.01.0001</span>
-                <span>Добрый жук</span>
+                <span class="float-right">
+                  {{item.date}}
+                </span>
+                <span>
+                  {{item.name}}
+                </span>
               </v-card-subtitle>
               <v-card-text>
-                Выражаю благодарность менеджеру Марии. Являюсь вашим клиентом и
-                всегда встречаю радушие, понимание и отзывчивость! Благодарю за
-                отличную работу и ту радость, что вы нам дарите, отправляя нас в
-                путешествия!
+                {{item.description}}
               </v-card-text>
             </v-card>
           </v-slide-item>
@@ -77,11 +61,22 @@ export default {
     CommentForm
   },
   data: () => ({
-    dialogOpen: false
+    dialogOpen: false,
+    comments: [],
+    showComments: true
   }),
+  async mounted() {
+    let result = await this.$axios.get(this.$store.state.global.host + 'comments')
+    if (result.data.status === 'ok') {
+      this.comments = result.data.data
+      this.showComments = false
+    } else {
+      this.showComments = true
+    }
+  },
   methods: {
     openForm: function() {
-      window.open("http://bit.ly/yourtravelplanner", "_blank");
+      window.open(this.$store.state.global.formUrl, "_blank");
     },
     onCloseChild: function(value) {
       console.log("valuevaluevalue", value); // someValue

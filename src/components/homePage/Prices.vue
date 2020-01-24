@@ -8,16 +8,16 @@
       </v-col>
       <v-col cols="12" md="6">
         <v-row class="text-center">
-          <v-col>
+          <v-col cols="12" md="4">
             <span class="headerSmall">1 день</span>
             <br />
             <span class="textMiddle">путешествия</span>
           </v-col>
-          <v-col class="headerSmall">
+          <v-col cols="12" md="4" class="headerSmall">
             =
           </v-col>
-          <v-col>
-            <span class="headerSmall">1 день*</span>
+          <v-col cols="12" md="4">
+            <span class="headerSmall">1&nbsp;день*</span>
             <br />
             <span class="textMiddle">планирования</span>
           </v-col>
@@ -129,9 +129,14 @@ export default {
   data: () => ({
     dialogOpen: false
   }),
+  computed: {
+    formUrl () {
+      return this.$store.state.global.formUrl
+    }
+  },
   methods: {
     openForm: function() {
-      window.open("http://bit.ly/yourtravelplanner", "_blank");
+      window.open(this.formUrl, "_blank");
     }
   }
 };
@@ -156,4 +161,12 @@ export default {
 .promo
   height: 300px
   margin-bottom: 30px
+  @media screen and (max-width: 1904px)
+    height: 300px
+  @media (max-width: 1263px)
+    height: 300px
+  @media (max-width: 960px)
+    height: 300px
+  @media (max-width: 600px)
+    height: 200px
 </style>

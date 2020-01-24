@@ -112,9 +112,9 @@ export default {
   }),
   methods: {
     openForm: function() {
-      window.open("http://bit.ly/yourtravelplanner", "_blank");
+      window.open(this.$store.state.global.formUrl, "_blank");
     }
-  }
+  },
 };
 </script>
 <style lang="sass">

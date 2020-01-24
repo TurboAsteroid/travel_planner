@@ -31,9 +31,14 @@
 export default {
   name: "SimpleForm",
   data: () => ({}),
+  computed: {
+    formUrl () {
+      return this.$store.state.global.formUrl
+    }
+  },
   methods: {
     openForm: function() {
-      window.open("http://bit.ly/yourtravelplanner", "_blank");
+      window.open(this.formUrl, "_blank");
     }
   }
 };
