@@ -36,7 +36,7 @@ export default {
           icon: "mdi-map-search",
           name: "Составить маршрут",
           action: "open",
-          place: this.formUrl
+          place: this.$store.state.global.formUrl
         },
         {
           icon: "mdi-frequently-asked-questions",
@@ -57,17 +57,9 @@ export default {
           place: "#commentsBlockId"
         }
       ]
-    }
-  },
-  computed: {
-    formUrl () {
-      return this.$store.state.global.formUrl
-    }
+    };
   },
   methods: {
-    openForm: function() {
-      window.open(this.formUrl, "_blank");
-    },
     closeMenu() {
       this.$emit("closed");
     },

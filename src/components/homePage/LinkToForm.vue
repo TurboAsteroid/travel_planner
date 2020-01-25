@@ -32,8 +32,8 @@ export default {
   name: "LinkToForm",
   data: () => ({}),
   computed: {
-    formUrl () {
-      return this.$store.state.global.formUrl
+    formUrl() {
+      return this.$store.state.global.formUrl;
     }
   },
   methods: {

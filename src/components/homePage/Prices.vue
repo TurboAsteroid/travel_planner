@@ -130,8 +130,8 @@ export default {
     dialogOpen: false
   }),
   computed: {
-    formUrl () {
-      return this.$store.state.global.formUrl
+    formUrl() {
+      return this.$store.state.global.formUrl;
     }
   },
   methods: {

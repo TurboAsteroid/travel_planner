@@ -17,14 +17,14 @@
             <v-card color="#e6e6e6" class="ma-4 carouselCard text-left">
               <v-card-subtitle class="black--text">
                 <span class="float-right">
-                  {{item.date}}
+                  {{ item.date }}
                 </span>
                 <span>
-                  {{item.name}}
+                  {{ item.name }}
                 </span>
               </v-card-subtitle>
               <v-card-text>
-                {{item.description}}
+                {{ item.description }}
               </v-card-text>
             </v-card>
           </v-slide-item>
@@ -66,12 +66,14 @@ export default {
     showComments: true
   }),
   async mounted() {
-    let result = await this.$axios.get(this.$store.state.global.host + 'comments')
-    if (result.data.status === 'ok') {
-      this.comments = result.data.data
-      this.showComments = false
+    let result = await this.$axios.get(
+      this.$store.state.global.host + "comments"
+    );
+    if (result.data.status === "ok") {
+      this.comments = result.data.data;
+      this.showComments = false;
     } else {
-      this.showComments = true
+      this.showComments = true;
     }
   },
   methods: {

@@ -114,7 +114,7 @@ export default {
     openForm: function() {
       window.open(this.$store.state.global.formUrl, "_blank");
     }
-  },
+  }
 };
 </script>
 <style lang="sass">

@@ -2,7 +2,7 @@
   <v-app v-scroll="onScroll">
     <v-app-bar color="transparent" collapse flat fixed dark>
       <v-icon @click.stop="model = !model" x-large v-bind:color="colorI"
-        >mdi-dots-vertical-circle-outline</v-icon
+        >mdi-dots-vertical</v-icon
       >
     </v-app-bar>
     <v-navigation-drawer

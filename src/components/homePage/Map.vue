@@ -47,14 +47,16 @@ export default {
       apiKey: this.$store.state.global.apiKey
     });
 
-    let result = await this.$axios.get(this.$store.state.global.host + 'mappoints')
-    if (result.data.status === 'ok') {
-      this.markers = result.data.data.markers
-      this.lines = result.data.data.lines
+    let result = await this.$axios.get(
+      this.$store.state.global.host + "mappoints"
+    );
+    if (result.data.status === "ok") {
+      this.markers = result.data.data.markers;
+      this.lines = result.data.data.lines;
       this.initializeMap();
-      this.showMap = false
+      this.showMap = false;
     } else {
-      this.showMap = true
+      this.showMap = true;
     }
   },
   computed: {
