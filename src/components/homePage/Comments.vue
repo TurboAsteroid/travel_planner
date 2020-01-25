@@ -24,7 +24,7 @@
                 </span>
               </v-card-subtitle>
               <v-card-text>
-                {{ item.description }}
+                {{ item.comment }}
               </v-card-text>
             </v-card>
           </v-slide-item>

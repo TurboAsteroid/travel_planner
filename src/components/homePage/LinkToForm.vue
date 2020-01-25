@@ -1,15 +1,11 @@
 <template>
   <v-container class="text-center my-12 pa-12">
-    <v-row>
-      <v-col class="headerText">
-        Настало время
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        запустить свой счётчик приключений
-      </v-col>
-    </v-row>
+    <div class="headerText">
+      Настало время
+    </div>
+    <div>
+      запустить свой счётчик приключений
+    </div>
     <v-row>
       <v-col class="headerText">
         <v-btn

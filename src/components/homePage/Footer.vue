@@ -2,16 +2,20 @@
   <v-container class="white--text bold pa-12">
     <v-row>
       <v-col cols="12" md="4" sm="6">
-        © 2020 Adventure Counter
+        {{ $store.state.settings.copyright }}
       </v-col>
       <v-col id="footerSecond" cols="12" sm="6" md="5">
-        +7 333 333 333 3
+        {{ $store.state.settings.phone }}
         <br />
-        mail@meil.mail
+        {{ $store.state.settings.mail }}
       </v-col>
       <v-col id="footerThird" cols="12" md="3">
-        <v-icon color="white" x-large>mdi-instagram</v-icon>
-        <v-icon color="white" x-large>mdi-facebook-box</v-icon>
+        <a :href="$store.state.settings.instagram_link" target="_blank">
+          <v-icon color="white" x-large>mdi-instagram</v-icon>
+        </a>
+        <a :href="$store.state.settings.facebook_link" target="_blank">
+          <v-icon color="white" x-large>mdi-facebook-box</v-icon>
+        </a>
       </v-col>
     </v-row>
   </v-container>
@@ -34,4 +38,6 @@ export default {
   text-align: right
   @media (max-width: 600px)
     text-align: left
+  a
+    text-decoration: none
 </style>

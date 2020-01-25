@@ -1,4 +1,4 @@
-<template>
+<template v-if="showGallery">
   <v-container id="galleryWrap">
     <div
       v-for="i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]"
@@ -32,60 +32,26 @@ function randomInteger(min, max) {
 export default {
   name: "Gallery",
   data: () => ({
+    showGallery: false,
     images: [[], []],
     imagesHide: [],
     publicPath: process.env.BASE_URL,
     tmpArray: [],
-    imageCollections: [
-      "gallery/1.jpg",
-      "gallery/2.jpg",
-      "gallery/3.jpg",
-      "gallery/4.jpg",
-      "gallery/5.jpg",
-      "gallery/6.jpg",
-      "gallery/7.jpg",
-      "gallery/8.jpg",
-      "gallery/9.jpg",
-      "gallery/10.jpg",
-      "gallery/11.jpg",
-      "gallery/12.jpg",
-      "gallery/13.jpg",
-      "gallery/14.jpg",
-      "gallery/15.jpg",
-      "gallery/16.jpg",
-      "gallery/17.jpg",
-      "gallery/18.jpg",
-      "gallery/19.jpg",
-      "gallery/20.jpg"
-    ]
+    imageCollections: []
   }),
-  //  computed: {
-  //    imageCollections() {
-  //
-  //      return [
-  //        "gallery/1.jpg",
-  //        "gallery/2.jpg",
-  //        "gallery/3.jpg",
-  //        "gallery/4.jpg",
-  //        "gallery/5.jpg",
-  //        "gallery/6.jpg",
-  //        "gallery/7.jpg",
-  //        "gallery/8.jpg",
-  //        "gallery/9.jpg",
-  //        "gallery/10.jpg",
-  //        "gallery/11.jpg",
-  //        "gallery/12.jpg",
-  //        "gallery/13.jpg",
-  //        "gallery/14.jpg",
-  //        "gallery/15.jpg",
-  //        "gallery/16.jpg",
-  //        "gallery/17.jpg",
-  //        "gallery/18.jpg",
-  //        "gallery/19.jpg",
-  //        "gallery/20.jpg"
-  //      ]
-  //    }
-  //  },
+  async mounted() {
+    let gallery = await this.$axios.get(
+      this.$store.state.global.host + "gallery"
+    );
+    if (gallery.data.status === "ok") {
+      this.imageCollections = gallery.data.gallery;
+      this.showGallery = false;
+      this.images[0].push(...this.imageCollections.splice(0, 15));
+      setTimeout(() => this.changeImage(), 1000);
+    } else {
+      this.showGallery = true;
+    }
+  },
   methods: {
     changeImage: function() {
       let index = randomInteger(0, this.images[0].length);
@@ -102,10 +68,6 @@ export default {
       Vue.set(this.imagesHide, index, currentState ? 0 : 1);
       setTimeout(() => this.changeImage(), 1000);
     }
-  },
-  created: function() {
-    this.images[0].push(...this.imageCollections.splice(0, 15));
-    setTimeout(() => this.changeImage(), 1000);
   }
 };
 </script>

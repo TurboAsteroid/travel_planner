@@ -9,13 +9,6 @@
         :google="google"
         :map="map"
       />
-      <GoogleMapLine
-        v-for="line in lines"
-        :key="line.id"
-        :path.sync="line.path"
-        :google="google"
-        :map="map"
-      />
     </template>
   </div>
 </template>
@@ -23,15 +16,11 @@
 <script>
 import GoogleMapsApiLoader from "google-maps-api-loader";
 import GoogleMapMarker from "../googleMap/GoogleMapMarker";
-import GoogleMapLine from "../googleMap/GoogleMapLine";
-
-import { mapSettings } from "@/constants/mapSettings";
 
 export default {
   name: "Map",
   components: {
-    GoogleMapMarker,
-    GoogleMapLine
+    GoogleMapMarker
   },
 
   data: () => ({
@@ -52,7 +41,6 @@ export default {
     );
     if (result.data.status === "ok") {
       this.markers = result.data.data.markers;
-      this.lines = result.data.data.lines;
       this.initializeMap();
       this.showMap = false;
     } else {
@@ -62,7 +50,9 @@ export default {
   computed: {
     mapConfig() {
       return {
-        ...mapSettings
+        zoom: 8,
+        minZoom: 2,
+        maxZoom: 8
       };
     }
   },
@@ -70,7 +60,6 @@ export default {
     initializeMap() {
       const mapContainer = this.$refs.googleMap;
       this.map = new this.google.maps.Map(mapContainer, this.mapConfig);
-
       let bounds = this.markers.reduce(function(bounds, marker) {
         return bounds.extend(marker.position);
       }, new this.google.maps.LatLngBounds());

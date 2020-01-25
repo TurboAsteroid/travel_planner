@@ -1,6 +1,4 @@
 <script>
-import { POINT_MARKER_ICON_CONFIG } from "@/constants/mapSettings";
-
 export default {
   props: {
     google: {
@@ -18,13 +16,21 @@ export default {
   },
 
   mounted() {
-    const { Marker } = this.google.maps;
-
-    new Marker({
+    const { Marker, InfoWindow } = this.google.maps;
+    let marker = new Marker({
       position: this.marker.position,
       marker: this.marker,
+      title: this.marker.title,
       map: this.map,
-      icon: POINT_MARKER_ICON_CONFIG
+      animation: this.google.maps.Animation.DROP
+    });
+
+    let contentString = `<div class="card"><div class="font-weight-bold subtitle-2">${this.marker.title}</div><div>${this.marker.description}</div></div>`;
+
+    let infowindow = new InfoWindow();
+    this.google.maps.event.addListener(marker, "click", function() {
+      infowindow.setContent(contentString);
+      infowindow.open(this.map, marker);
     });
   },
   render() {
