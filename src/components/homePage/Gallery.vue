@@ -45,11 +45,11 @@ export default {
     );
     if (gallery.data.status === "ok") {
       this.imageCollections = gallery.data.gallery;
-      this.showGallery = false;
+      this.showGallery = true;
       this.images[0].push(...this.imageCollections.splice(0, 15));
       setTimeout(() => this.changeImage(), 1000);
     } else {
-      this.showGallery = true;
+      this.showGallery = false;
     }
   },
   methods: {

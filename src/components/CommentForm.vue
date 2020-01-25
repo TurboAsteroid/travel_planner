@@ -31,9 +31,9 @@
     <v-card-actions>
       <v-spacer></v-spacer>
       <v-btn color="blue darken-1" text @click="onClickButton()">Закрыть</v-btn>
-      <v-btn color="blue darken-1" text @click="onClickButton(true)"
-        >Отправить</v-btn
-      >
+      <v-btn color="blue darken-1" text @click="onClickButton(true)">
+        Отправить
+      </v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -43,12 +43,16 @@ export default {
   name: "Conditions",
   data: () => ({
     name: "",
-    comment: ""
+    comment: "",
+    valid: true
   }),
   methods: {
     onClickButton(params) {
       if (!params || this.$refs.form.validate()) {
-        this.$emit("closed", params ? [this.name, this.comment] : []);
+        this.$emit(
+          "closed",
+          params ? { name: this.name, comment: this.comment } : []
+        );
         this.$refs.form.reset();
         this.$refs.form.resetValidation();
       }

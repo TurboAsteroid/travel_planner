@@ -50,6 +50,15 @@
         </v-dialog>
       </v-col>
     </v-row>
+    <v-snackbar
+      v-model="snackbar.show"
+      bottom
+      :color="snackbar.color"
+      right
+      :timeout="1000"
+    >
+      {{ snackbar.message }}
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -63,7 +72,12 @@ export default {
   data: () => ({
     dialogOpen: false,
     comments: [],
-    showComments: true
+    showComments: true,
+    snackbar: {
+      show: false,
+      message: "",
+      color: "success"
+    }
   }),
   async mounted() {
     let result = await this.$axios.get(
@@ -77,11 +91,20 @@ export default {
     }
   },
   methods: {
-    openForm: function() {
-      window.open(this.$store.state.global.formUrl, "_blank");
-    },
-    onCloseChild: function(value) {
-      console.log("valuevaluevalue", value); // someValue
+    onCloseChild: async function(value) {
+      if (value) {
+        let result = await this.$axios.post(
+          this.$store.state.global.host + "comments",
+          value
+        );
+        if (result.data.status === "ok") {
+          this.snackbar.color = "success";
+        } else {
+          this.snackbar.color = "error";
+        }
+        this.snackbar.message = result.data.message;
+        this.snackbar.show = true;
+      }
       this.dialogOpen = false;
     }
   }

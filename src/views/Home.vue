@@ -1,7 +1,7 @@
 <template>
   <v-app v-scroll="onScroll">
     <v-app-bar color="transparent" collapse flat fixed dark>
-      <v-icon @click.stop="model = !model" x-large v-bind:color="colorI"
+      <v-icon @click.stop="model = !model" v-bind:color="colorI"
         >mdi-dots-vertical</v-icon
       >
     </v-app-bar>

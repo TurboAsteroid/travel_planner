@@ -1,7 +1,7 @@
 <template>
   <v-container class="white--text bold pa-12">
     <v-row>
-      <v-col cols="12" md="4" sm="6">
+      <v-col cols="12" md="4" sm="6" @click="openForm()">
         {{ $store.state.settings.copyright }}
       </v-col>
       <v-col id="footerSecond" cols="12" sm="6" md="5">
@@ -24,7 +24,10 @@
 <script>
 export default {
   name: "Footer",
-  data: () => ({})
+  data: () => ({}),
+  methods: {
+    openForm: function() {}
+  }
 };
 </script>
 <style lang="sass">
