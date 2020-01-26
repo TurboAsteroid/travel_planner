@@ -8,15 +8,15 @@
       </v-col>
       <v-col cols="12" md="6">
         <v-row class="text-center">
-          <v-col cols="12" md="4">
+          <v-col cols="12" md="5">
             <span class="headerSmall">1 день</span>
             <br />
             <span class="textMiddle">путешествия</span>
           </v-col>
-          <v-col cols="12" md="4" class="headerSmall">
+          <v-col cols="12" md="2" class="headerSmall">
             =
           </v-col>
-          <v-col cols="12" md="4">
+          <v-col cols="12" md="5">
             <span class="headerSmall">1&nbsp;день*</span>
             <br />
             <span class="textMiddle">планирования</span>
@@ -144,7 +144,7 @@ export default {
 <style lang="sass">
 #PricesBlock
   padding: 150px 12px
-  @media screen and (max-width: 1904px)
+  @media screen and (max-width: 1920px)
     padding: 100px 12px
   @media (max-width: 1263px)
     padding: 80px 12px
@@ -161,7 +161,7 @@ export default {
 .promo
   height: 300px
   margin-bottom: 30px
-  @media screen and (max-width: 1904px)
+  @media screen and (max-width: 1920px)
     height: 300px
   @media (max-width: 1263px)
     height: 300px

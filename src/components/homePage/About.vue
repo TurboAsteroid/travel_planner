@@ -106,7 +106,7 @@ export default {
 <style lang="sass">
 #about
   padding: 150px 0
-  @media screen and (max-width: 1904px)
+  @media screen and (max-width: 1920px)
     padding: 100px 0
   @media (max-width: 1263px)
     padding: 80px 0

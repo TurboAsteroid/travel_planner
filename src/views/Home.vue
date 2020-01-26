@@ -142,7 +142,7 @@ export default {
   background: #4c8cac
 .regularText
   font-size: 1.7em
-  @media screen and (max-width: 1903px)
+  @media screen and (max-width: 1920px)
     font-size: 1em
   @media (max-width: 1263px)
     font-size: 0.75em
@@ -154,7 +154,7 @@ export default {
   font-weight: bold
   font-size: 5em
   line-height: 1.2em
-  @media screen and (max-width: 1903px)
+  @media screen and (max-width: 1920px)
     font-size: 4em
   @media (max-width: 1263px)
     font-size: 3em
@@ -166,7 +166,7 @@ export default {
   font-weight: bold
   font-size: 3.75em
   line-height: 1.2em
-  @media screen and (max-width: 1903px)
+  @media screen and (max-width: 1920px)
     font-size: 3em
   @media (max-width: 1263px)
     font-size: 2.25em
@@ -178,7 +178,7 @@ export default {
   font-weight: bold
   font-size: 2em
   line-height: 1.2em
-  @media screen and (max-width: 1903px)
+  @media screen and (max-width: 1920px)
     font-size: 1.8em
   @media (max-width: 1263px)
     font-size: 1.5em
@@ -189,7 +189,7 @@ export default {
 .textMiddle
   font-size: 2.5em
   line-height: 1.2em
-  @media screen and (max-width: 1903px)
+  @media screen and (max-width: 1920px)
     font-size: 2em
   @media (max-width: 1263px)
     font-size: 1.5em

@@ -88,7 +88,7 @@ export default {
   top: 30px
   margin-left: -620px
   width: 180px
-  @media screen and (max-width: 1904px)
+  @media screen and (max-width: 1920px)
     margin-left: -630px
   @media (max-width: 1263px)
     width: 120px
@@ -97,7 +97,7 @@ export default {
   top: 210px
   margin-left: -740px
   width: 225px
-  @media screen and (max-width: 1904px)
+  @media screen and (max-width: 1920px)
     top: 100px
     margin-left: -450px
   @media (max-width: 1263px)
@@ -115,7 +115,7 @@ export default {
   top: 615px
   margin-left: -705px
   width: 290px
-  @media screen and (max-width: 1904px)
+  @media screen and (max-width: 1920px)
     margin-left: -635px
   @media (max-width: 1263px)
     width: 190px
@@ -139,7 +139,7 @@ export default {
   top: 735px
   margin-left: -415px
   width: 120px
-  @media screen and (max-width: 1904px)
+  @media screen and (max-width: 1920px)
     top: 615px
     margin-left: -345px
   @media (max-width: 1263px)
@@ -167,7 +167,7 @@ export default {
   margin-left: 185px
   width: 185px
   height: 185px
-  @media screen and (max-width: 1904px)
+  @media screen and (max-width: 1920px)
     margin-left: 65px
   @media (max-width: 1263px)
     width: 120px
@@ -193,7 +193,7 @@ export default {
   top: 40px
   margin-left: 370px
   width: 285px
-  @media screen and (max-width: 1904px)
+  @media screen and (max-width: 1920px)
     margin-left: 250px
   @media (max-width: 1263px)
     width: 190px

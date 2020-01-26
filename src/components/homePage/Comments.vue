@@ -113,7 +113,7 @@ export default {
 <style lang="sass">
 .carouselCard
   width: 485px
-  @media screen and (max-width: 1904px)
+  @media screen and (max-width: 1920px)
     width: 290px
   @media (max-width: 1263px)
     width: 305px

@@ -15,7 +15,7 @@ export default {
 <style lang="sass">
 #headerWraper
   padding: 150px 0 130px
-  @media screen and (max-width: 1904px)
+  @media screen and (max-width: 1920px)
     padding: 100px 0 90px
   @media (max-width: 1263px)
     padding: 80px 0 60px
@@ -26,7 +26,7 @@ export default {
 #logo
   width: 500px
   margin: 0 auto
-  @media screen and (max-width: 1904px)
+  @media screen and (max-width: 1920px)
     width: 350px
   @media (max-width: 1263px)
     width: 250px

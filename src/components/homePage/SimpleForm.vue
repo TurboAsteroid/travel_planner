@@ -47,7 +47,7 @@ export default {
 #mountWrapper
   position: relative
   padding: 12*4px 0
-  @media screen and (max-width: 1904px)
+  @media screen and (max-width: 1920px)
     padding: 10*4px 0
   @media (max-width: 1263px)
     padding: 8*4px 0
