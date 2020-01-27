@@ -20,6 +20,57 @@
         <component :is="item" />
       </div>
     </template>
+
+
+    <v-dialog v-model="$store.state.dialogs.dialogConditions" max-width="50%">
+      <v-card>
+        <Conditions />
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="green darken-1" text @click="$store.commit('setDialog', [false, 'dialogConditions'])"
+          >Продолжить</v-btn
+          >
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <v-dialog v-model="$store.state.dialogs.dialogFaq" max-width="50%">
+      <v-card>
+        <Faq />
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="green darken-1"
+            text
+            @click="$store.commit('setDialog', [false, 'dialogFaq'])"
+          >
+            Продолжить
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <v-dialog v-model="$store.state.dialogs.dialogComments" persistent max-width="50%">
+      <v-card>
+        <CommentForm @closed="onCloseChild" />
+      </v-card>
+    </v-dialog>
+
+
+    <v-dialog v-model="$store.state.dialogs.dialogProfile" persistent max-width="50%">
+      <v-card>
+        <ProfileForm />
+      </v-card>
+    </v-dialog>
+
+    <v-snackbar
+      v-model="snackbar.show"
+      bottom
+      :color="snackbar.color"
+      right
+      :timeout="1000"
+    >
+      {{ snackbar.message }}
+    </v-snackbar>
   </v-app>
 </template>
 
@@ -33,12 +84,17 @@ import LinkToForm from "@/components/homePage/LinkToForm.vue";
 import Map from "@/components/homePage/Map.vue";
 import Comments from "@/components/homePage/Comments.vue";
 import Footer from "@/components/homePage/Footer.vue";
-
 import LeftMenu from "@/components/LeftMenu.vue";
+import Conditions from "@/components/Conditions.vue";
+import Faq from "@/components/Faq.vue";
+import CommentForm from "@/components/CommentForm.vue";
+import ProfileForm from "@/components/ProfileForm.vue";
 
 export default {
   name: "home",
-  dialogOpen: false,
+  dialogConditions: false,
+  dialogFaq: false,
+  dialogComments: false,
   components: {
     Header,
     SimpleForm,
@@ -49,7 +105,11 @@ export default {
     Map,
     Comments,
     Footer,
-    LeftMenu
+    LeftMenu,
+    Conditions,
+    Faq,
+    CommentForm,
+    ProfileForm
   },
   data: () => ({
     colorI: "#fff",
@@ -65,9 +125,32 @@ export default {
       "Map",
       "Comments",
       "Footer"
-    ]
+    ],
+    snackbar: {
+      show: false,
+      message: "",
+      color: "success"
+    }
   }),
   methods: {
+
+    onCloseChild: async function(value) {
+      if (value && value.length) {
+        let result = await this.$axios.post(
+          this.$store.state.global.host + "comments",
+          value
+        );
+        if (result.data.status === "ok") {
+          this.snackbar.color = "success";
+        } else {
+          this.snackbar.color = "error";
+        }
+        this.snackbar.message = result.data.message;
+        this.snackbar.show = true;
+      }
+//      this.$store.state.dialogs.dialogComments = false;
+      this.$store.commit('setDialog', [false, 'dialogComments']);
+    },
     closeMenu: function() {
       this.model = false;
     },

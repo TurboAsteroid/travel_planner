@@ -26,7 +26,9 @@ export default {
   name: "Footer",
   data: () => ({}),
   methods: {
-    openForm: function() {}
+    openForm: function() {
+      this.$store.commit("setDialog", [true, 'dialogProfile'])
+    }
   }
 };
 </script>

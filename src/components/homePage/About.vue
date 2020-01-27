@@ -26,7 +26,7 @@
               <p class="regularText">
                 <a
                   class="black--text font-weight-bold"
-                  @click.stop="dialogOpen = true"
+                  @click.stop="$store.commit('setDialog', [true, 'dialogFaq'])"
                 >
                   Остались вопросы? читайте наш
                   <span style="text-decoration: underline">FAQ</span>
@@ -48,21 +48,7 @@
                   <v-icon right>mdi-chevron-right-circle</v-icon>
                 </a>
               </p>
-              <v-dialog v-model="dialogOpen" max-width="50%">
-                <v-card>
-                  <Faq />
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn
-                      color="green darken-1"
-                      text
-                      @click="dialogOpen = false"
-                    >
-                      Продолжить
-                    </v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-dialog>
+
             </v-row>
           </v-container>
         </v-col>
@@ -73,14 +59,9 @@
 </template>
 
 <script>
-import Faq from "@/components/Faq.vue";
 export default {
   name: "About",
-  components: {
-    Faq
-  },
   data: () => ({
-    dialogOpen: false,
     howItWorks: {},
     ourOffer: {}
   }),

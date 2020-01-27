@@ -100,35 +100,17 @@
           Скидки суммируются
         </span>
         <br />
-        <a id="smallLink" @click.stop="dialogOpen = true">
+        <a id="smallLink" @click.stop="$store.commit('setDialog', [true, 'dialogConditions'])">
           Подробные условия
         </a>
-        <v-dialog v-model="dialogOpen" max-width="50%">
-          <v-card>
-            <Conditions />
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="green darken-1" text @click="dialogOpen = false"
-                >Продолжить</v-btn
-              >
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import Conditions from "@/components/Conditions.vue";
 export default {
   name: "Prices",
-  components: {
-    Conditions
-  },
-  data: () => ({
-    dialogOpen: false
-  }),
   computed: {
     formUrl() {
       return this.$store.state.global.formUrl;

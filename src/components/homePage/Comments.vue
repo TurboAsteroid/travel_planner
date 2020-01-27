@@ -34,7 +34,7 @@
     <v-row>
       <v-col class="headerText">
         <v-btn
-          @click.stop="dialogOpen = true"
+          @click.stop="$store.commit('setDialog', [true, 'dialogComments'])"
           rounded
           color="#000"
           dark
@@ -43,41 +43,17 @@
         >
           Оставить отзыв
         </v-btn>
-        <v-dialog v-model="dialogOpen" persistent max-width="50%">
-          <v-card>
-            <CommentForm @closed="onCloseChild" />
-          </v-card>
-        </v-dialog>
       </v-col>
     </v-row>
-    <v-snackbar
-      v-model="snackbar.show"
-      bottom
-      :color="snackbar.color"
-      right
-      :timeout="1000"
-    >
-      {{ snackbar.message }}
-    </v-snackbar>
   </v-container>
 </template>
 
 <script>
-import CommentForm from "@/components/CommentForm.vue";
 export default {
   name: "Comments",
-  components: {
-    CommentForm
-  },
   data: () => ({
-    dialogOpen: false,
     comments: [],
     showComments: true,
-    snackbar: {
-      show: false,
-      message: "",
-      color: "success"
-    }
   }),
   async mounted() {
     let result = await this.$axios.get(
@@ -91,22 +67,6 @@ export default {
     }
   },
   methods: {
-    onCloseChild: async function(value) {
-      if (value) {
-        let result = await this.$axios.post(
-          this.$store.state.global.host + "comments",
-          value
-        );
-        if (result.data.status === "ok") {
-          this.snackbar.color = "success";
-        } else {
-          this.snackbar.color = "error";
-        }
-        this.snackbar.message = result.data.message;
-        this.snackbar.show = true;
-      }
-      this.dialogOpen = false;
-    }
   }
 };
 </script>
