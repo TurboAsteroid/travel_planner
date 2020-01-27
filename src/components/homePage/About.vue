@@ -48,7 +48,6 @@
                   <v-icon right>mdi-chevron-right-circle</v-icon>
                 </a>
               </p>
-
             </v-row>
           </v-container>
         </v-col>

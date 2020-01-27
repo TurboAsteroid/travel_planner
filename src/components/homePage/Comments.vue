@@ -53,7 +53,7 @@ export default {
   name: "Comments",
   data: () => ({
     comments: [],
-    showComments: true,
+    showComments: true
   }),
   async mounted() {
     let result = await this.$axios.get(
@@ -66,8 +66,7 @@ export default {
       this.showComments = true;
     }
   },
-  methods: {
-  }
+  methods: {}
 };
 </script>
 <style lang="sass">

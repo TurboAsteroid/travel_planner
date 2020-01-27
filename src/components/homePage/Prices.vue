@@ -100,7 +100,10 @@
           Скидки суммируются
         </span>
         <br />
-        <a id="smallLink" @click.stop="$store.commit('setDialog', [true, 'dialogConditions'])">
+        <a
+          id="smallLink"
+          @click.stop="$store.commit('setDialog', [true, 'dialogConditions'])"
+        >
           Подробные условия
         </a>
       </v-col>

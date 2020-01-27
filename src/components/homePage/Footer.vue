@@ -1,7 +1,7 @@
 <template>
   <v-container class="white--text bold pa-12">
     <v-row>
-      <v-col cols="12" md="4" sm="6" @click="openForm()">
+      <v-col cols="12" md="4" sm="6">
         {{ $store.state.settings.copyright }}
       </v-col>
       <v-col id="footerSecond" cols="12" sm="6" md="5">
@@ -27,7 +27,7 @@ export default {
   data: () => ({}),
   methods: {
     openForm: function() {
-      this.$store.commit("setDialog", [true, 'dialogProfile'])
+      this.$store.commit("setDialog", [true, "dialogProfile"]);
     }
   }
 };

@@ -22,16 +22,16 @@ export default new Vuex.Store({
   },
   getters: {
     global: state => state.global,
-    dialogs: state => state.dialogs,
+    dialogs: state => state.dialogs
   },
   mutations: {
     setSettings(state, val) {
       state.settings = val;
     },
     setDialog(state, params) {
-      let [val, dialogName] = params
+      let [val, dialogName] = params;
       if (dialogName) {
-        state.dialogs[dialogName] = val
+        state.dialogs[dialogName] = val;
       } else {
         state.dialogs = val;
       }

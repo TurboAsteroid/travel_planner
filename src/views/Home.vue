@@ -21,14 +21,16 @@
       </div>
     </template>
 
-
     <v-dialog v-model="$store.state.dialogs.dialogConditions" max-width="50%">
       <v-card>
         <Conditions />
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="$store.commit('setDialog', [false, 'dialogConditions'])"
-          >Продолжить</v-btn
+          <v-btn
+            color="green darken-1"
+            text
+            @click="$store.commit('setDialog', [false, 'dialogConditions'])"
+            >Продолжить</v-btn
           >
         </v-card-actions>
       </v-card>
@@ -49,14 +51,21 @@
       </v-card>
     </v-dialog>
 
-    <v-dialog v-model="$store.state.dialogs.dialogComments" persistent max-width="50%">
+    <v-dialog
+      v-model="$store.state.dialogs.dialogComments"
+      persistent
+      max-width="50%"
+    >
       <v-card>
         <CommentForm @closed="onCloseChild" />
       </v-card>
     </v-dialog>
 
-
-    <v-dialog v-model="$store.state.dialogs.dialogProfile" persistent max-width="50%">
+    <v-dialog
+      v-model="$store.state.dialogs.dialogProfile"
+      persistent
+      max-width="50%"
+    >
       <v-card>
         <ProfileForm />
       </v-card>
@@ -133,7 +142,6 @@ export default {
     }
   }),
   methods: {
-
     onCloseChild: async function(value) {
       if (value && value.length) {
         let result = await this.$axios.post(
@@ -148,8 +156,8 @@ export default {
         this.snackbar.message = result.data.message;
         this.snackbar.show = true;
       }
-//      this.$store.state.dialogs.dialogComments = false;
-      this.$store.commit('setDialog', [false, 'dialogComments']);
+      //      this.$store.state.dialogs.dialogComments = false;
+      this.$store.commit("setDialog", [false, "dialogComments"]);
     },
     closeMenu: function() {
       this.model = false;
